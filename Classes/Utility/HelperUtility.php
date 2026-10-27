@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace NITSAN\NsT3Ab\Utility;
 
+use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\VersionNumberUtility;
-use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 
 /**
  * Class HelperUtility
@@ -50,7 +50,7 @@ class HelperUtility
     }
 
     /**
-     * @param string $request
+     * @param array $request
      * @return string
      */
     public static function getSelectedModal(array $request): string
@@ -61,8 +61,8 @@ class HelperUtility
                 case 'gemini':
                     $result = $request['gemini-models'] ?? '';
                     break;
-                    case 'openai':
-                        $result = $request['openai-models'] ?? '';
+                case 'openai':
+                    $result = $request['openai-models'] ?? '';
                     break;
                 case 'azure':
                     $result = $request['azure-models'] ?? '';

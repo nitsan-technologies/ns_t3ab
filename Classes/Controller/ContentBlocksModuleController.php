@@ -4,32 +4,31 @@ declare(strict_types=1);
 
 namespace NITSAN\NsT3Ab\Controller;
 
-use Normalizer;
-use TYPO3\CMS\Core\Http\JsonResponse;
-use Psr\Http\Message\ResponseInterface;
-use TYPO3\CMS\Core\Imaging\IconFactory;
-use NITSAN\NsT3Ab\Utility\HelperUtility;
 use GuzzleHttp\Exception\ClientException;
-use TYPO3\CMS\Core\Http\RedirectResponse;
-use TYPO3\CMS\Core\Utility\StringUtility;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use Psr\Http\Message\ServerRequestInterface;
-use TYPO3\CMS\Core\Charset\CharsetConverter;
-use TYPO3\CMS\Core\Resource\ResourceFactory;
-use TYPO3\CMS\Backend\Utility\BackendUtility;
-use TYPO3\CMS\Core\Service\OpcodeCacheService;
-use NITSAN\NsT3Ab\Controller\AbstractController;
-use TYPO3\CMS\Install\Service\ClearCacheService;
 use NITSAN\NsT3Ab\Service\PackageResolverService;
-use NITSAN\NsT3Ab\Utility\ContentBlocksYamlConfig;
 use NITSAN\NsT3Ab\Utility\ContentBlocksIconUtility;
-use TYPO3\CMS\ContentBlocks\Loader\LoadedContentBlock;
+use NITSAN\NsT3Ab\Utility\ContentBlocksYamlConfig;
+use NITSAN\NsT3Ab\Utility\HelperUtility;
+use Normalizer;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\ContentBlocks\Builder\ContentBlockBuilder;
-use TYPO3\CMS\ContentBlocks\Registry\ContentBlockRegistry;
-use TYPO3\CMS\ContentBlocks\Utility\ContentBlockPathUtility;
 use TYPO3\CMS\ContentBlocks\Definition\ContentType\ContentType;
 use TYPO3\CMS\ContentBlocks\Definition\ContentType\ContentTypeIcon;
 use TYPO3\CMS\ContentBlocks\Definition\Factory\UniqueIdentifierCreator;
+use TYPO3\CMS\ContentBlocks\Loader\LoadedContentBlock;
+use TYPO3\CMS\ContentBlocks\Registry\ContentBlockRegistry;
+use TYPO3\CMS\ContentBlocks\Utility\ContentBlockPathUtility;
+use TYPO3\CMS\Core\Charset\CharsetConverter;
+use TYPO3\CMS\Core\Http\JsonResponse;
+use TYPO3\CMS\Core\Http\RedirectResponse;
+use TYPO3\CMS\Core\Imaging\IconFactory;
+use TYPO3\CMS\Core\Resource\ResourceFactory;
+use TYPO3\CMS\Core\Service\OpcodeCacheService;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\StringUtility;
+use TYPO3\CMS\Install\Service\ClearCacheService;
 
 class ContentBlocksModuleController extends AbstractController
 {
@@ -52,8 +51,7 @@ class ContentBlocksModuleController extends AbstractController
         ContentBlockBuilder $contentBlockBuilder,
         ContentBlockRegistry $contentBlockRegistry,
         ClearCacheService $clearCacheService
-    )
-    {
+    ) {
         parent::__construct();
         $this->contentBlockBuilder = $contentBlockBuilder;
         $this->contentBlockRegistry = $contentBlockRegistry;
@@ -67,7 +65,7 @@ class ContentBlocksModuleController extends AbstractController
     {
         $availableContentBlocks = $this->getAvailableContentBlocks();
         $assign = [
-            'availableContentBlocks' => $availableContentBlocks
+            'availableContentBlocks' => $availableContentBlocks,
         ];
         $this->pageRenderer->loadJavaScriptModule('@nitsan/nst3ab/modal-view.js');
         return $this->getViewAndTemplate($this->request, $assign, 'ContentBlocksModule/', 'Index');
@@ -90,7 +88,7 @@ class ContentBlocksModuleController extends AbstractController
                 continue;
             }
             $key = rtrim($groupKey, '.');
-            if (str_starts_with($wizardGroup['header']?? '','LLL:EXT')) {
+            if (str_starts_with($wizardGroup['header'] ?? '', 'LLL:EXT')) {
                 $localLangLabel = $wizardGroup['header'];
                 $normalLabel =  '';
             } else {
@@ -99,7 +97,7 @@ class ContentBlocksModuleController extends AbstractController
             }
             $contentElementGroup[$key] = [
                 'localLangLabel' => $localLangLabel,
-                'normalLabel' => $normalLabel
+                'normalLabel' => $normalLabel,
             ];
         }
         $packageResolver = GeneralUtility::makeInstance(PackageResolverService::class);
@@ -117,7 +115,7 @@ class ContentBlocksModuleController extends AbstractController
             'defaultModel' => isset($extConf['defaultModel']) ? $extConf['defaultModel'] : null,
             'extensionConfig' => $extConf,
             'contentElementGroup' => $contentElementGroup,
-            'submitAction' => $this->backendUriBuilder->buildUriFromRoute('content_blocks_field_generation',['pageId' => $pageId])
+            'submitAction' => $this->backendUriBuilder->buildUriFromRoute('content_blocks_field_generation', ['pageId' => $pageId]),
         ];
         $this->pageRenderer->loadJavaScriptModule('@nitsan/nst3ab/ai-content-blocks.js');
         return $this->getViewAndTemplate($request, $assign, 'ContentBlocksModule/', 'ContentElementGeneration');
@@ -233,14 +231,14 @@ class ContentBlocksModuleController extends AbstractController
                 'category' => $parsedBody['category'],
                 'cbIcon' => $parsedBody['cbIcon'] ?? '',
                 'validYamlArray' => $validYamlArray,
-                'validYamlArrayJson' => json_encode($validYamlArray,1),
+                'validYamlArrayJson' => json_encode($validYamlArray, 1),
                 'allowedFields' => ContentBlocksYamlConfig::getContentBlocksFieldTypes(),
                 'allowedTextFields' => ContentBlocksYamlConfig::getAllowedTextFields(),
                 'allowedFalFields' => ContentBlocksYamlConfig::getAllowedFalFields(),
                 'allowedMultiSelectFields' => ContentBlocksYamlConfig::getAllowedMultiSelectFields(),
-                'backUrl' => $this->backendUriBuilder->buildUriFromRoute('ai_content_blocks',['pageId' => $pageId]),
-                'reGenerateUrl'=> $this->backendUriBuilder->buildUriFromRoute('content_blocks_field_generation',['pageId' => $pageId]),
-                'createUrl' => $this->backendUriBuilder->buildUriFromRoute('create_content_element')
+                'backUrl' => $this->backendUriBuilder->buildUriFromRoute('ai_content_blocks', ['pageId' => $pageId]),
+                'reGenerateUrl' => $this->backendUriBuilder->buildUriFromRoute('content_blocks_field_generation', ['pageId' => $pageId]),
+                'createUrl' => $this->backendUriBuilder->buildUriFromRoute('create_content_element'),
             ];
         }
         $this->pageRenderer->loadJavaScriptModule('@nitsan/nst3ab/ai-content-blocks.js');
@@ -253,8 +251,7 @@ class ContentBlocksModuleController extends AbstractController
      */
     public function createContentElementAction(
         ServerRequestInterface $request
-    ): ResponseInterface
-    {
+    ): ResponseInterface {
         $parsedBody = $request->getParsedBody();
         $error = '';
         $validate = true;
@@ -292,7 +289,7 @@ class ContentBlocksModuleController extends AbstractController
                 $basePath = GeneralUtility::getFileAbsFileName($path);
                 try {
                     $this->validateKeyAndPath($basePath, $parsedBody['contentBlockKey'], $extension);
-                    $validYamlArrayJson = json_decode($parsedBody['validYamlArrayJson'],true,512,1);
+                    $validYamlArrayJson = json_decode($parsedBody['validYamlArrayJson'], true, 512, 1);
                     $finalizeFields = [];
                     if (!empty($validYamlArrayJson)) {
                         foreach ($validYamlArrayJson as $field) {
@@ -303,9 +300,9 @@ class ContentBlocksModuleController extends AbstractController
                                 $field['type'] = $parsedBody[$field['identifier'].'-type'];
                                 $field['label'] = $parsedBody[$field['identifier'].'-label'];
                                 if (isset($parsedBody[$field['identifier'].'-required']) && $parsedBody[$field['identifier'].'-required'] === 'on') {
-                                    $field['required'] = TRUE;
+                                    $field['required'] = true;
                                 } else {
-                                    $field['required'] = FALSE;
+                                    $field['required'] = false;
                                 }
                                 $finalizeFields[] = $field;
                             }
@@ -319,13 +316,13 @@ class ContentBlocksModuleController extends AbstractController
                                     'identifier' => $identifier,
                                     'label' => $newLabel,
                                     'type' => $newType,
-                                    'required' => isset($parsedBody['new-required'][$key])?$parsedBody['new-required'][$key] : FALSE,
+                                    'required' => isset($parsedBody['new-required'][$key]) ? $parsedBody['new-required'][$key] : false,
                                 ];
                             }
                         }
                     }
                     $validYamlArray = [];
-                    foreach($finalizeFields as $field) {
+                    foreach ($finalizeFields as $field) {
                         $validYamlArray[] = ContentBlocksYamlConfig::getFieldConfig($field);
                     }
                     $yamlConfiguration = $this->createContentBlockContentElementConfiguration(
@@ -381,7 +378,7 @@ class ContentBlocksModuleController extends AbstractController
         }
         $assign = [
             'error' => $error,
-            'files' => $files
+            'files' => $files,
         ];
         if ($success) {
             $this->showFlashMessage(
@@ -432,8 +429,7 @@ class ContentBlocksModuleController extends AbstractController
                     // Copy to backup folder
                     GeneralUtility::copyDirectory($basePath, $backupStoreDir);
                     $isBackup = true;
-                }
-                catch (\Exception $e) {
+                } catch (\Exception $e) {
                     $error = $e->getMessage();
                 }
 
@@ -463,7 +459,7 @@ class ContentBlocksModuleController extends AbstractController
     public function keySuggestAction(ServerRequestInterface $request): ResponseInterface
     {
         $providedKey = $request->getParsedBody()['providedKey'];
-        $key = preg_replace('/[^A-Za-z0-9 -]/', '', $this->normalize($providedKey,'-'));
+        $key = preg_replace('/[^A-Za-z0-9 -]/', '', $this->normalize($providedKey, '-'));
         $extension = $request->getParsedBody()['packageName'];
         $base = 'EXT:' . $extension . '/';
         $path = $base . ContentBlockPathUtility::getRelativeContentElementsPath();
@@ -484,7 +480,7 @@ class ContentBlocksModuleController extends AbstractController
             }
         }
         return new JsonResponse([
-            'validateKey' => $uniqueKey
+            'validateKey' => $uniqueKey,
         ]);
     }
 
@@ -501,7 +497,7 @@ class ContentBlocksModuleController extends AbstractController
         }
         $assign = [
             'error' => $error,
-            'files' => $files
+            'files' => $files,
         ];
         return $this->getViewAndTemplate($request, $assign, 'ContentBlocksModule/', 'GeneratedContentBlockPreview');
     }
@@ -601,8 +597,7 @@ class ContentBlocksModuleController extends AbstractController
         string $name,
         string $title,
         string $description = ''
-    ): array
-    {
+    ): array {
         $fullName = $vendor . '/' . $name;
         $configuration = [
             't3ab' => 1,
@@ -618,7 +613,7 @@ class ContentBlocksModuleController extends AbstractController
             'prefixFields' => true,
             'prefixType' => 'full',
         ];
-        foreach($fieldArray as $field) {
+        foreach ($fieldArray as $field) {
             $configuration['fields'][] = $field;
         }
         return $configuration;
@@ -633,7 +628,7 @@ class ContentBlocksModuleController extends AbstractController
     {
         GeneralUtility::writeFile(
             $basePath . '/' . $contentBlockName . '/' . ContentBlockPathUtility::getFrontendTemplatePath(),
-            "<f:debug>{data._processed}</f:debug>"
+            '<f:debug>{data._processed}</f:debug>'
         );
     }
 
@@ -677,8 +672,8 @@ class ContentBlocksModuleController extends AbstractController
                     'extPath' => $loadedContentBlock->getExtPath(),
                     'table' => $table,
                     'type-name' => $typeName,
-                    'title' => $loadedContentBlock->getYaml()['t3abTitle']??'',
-                    'description' => $loadedContentBlock->getYaml()['t3abDescription']??'',
+                    'title' => $loadedContentBlock->getYaml()['t3abTitle'] ?? '',
+                    'description' => $loadedContentBlock->getYaml()['t3abDescription'] ?? '',
                     'content-type' => $loadedContentBlock->getContentType()->getHumanReadable(),
                     'extension' => $loadedContentBlock->getHostExtension(),
                     // @extensionScannerIgnoreLine
@@ -722,7 +717,7 @@ class ContentBlocksModuleController extends AbstractController
             $yamlKey => $getFileContents($yamlPath),
             $frontendKey => $getFileContents($frontendTemplatePath),
             $backendKey => $getFileContents($backendPreviewTemplatePath),
-            $langKey => $getFileContents($languageFilePath)
+            $langKey => $getFileContents($languageFilePath),
         ];
     }
 }

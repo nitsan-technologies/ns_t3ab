@@ -4,23 +4,22 @@ declare(strict_types=1);
 
 namespace NITSAN\NsT3Ab\Controller;
 
-use NITSAN\NsT3Ab\Service\AiService;
-use TYPO3\CMS\Core\Page\PageRenderer;
-use Psr\Http\Message\ResponseInterface;
-use NITSAN\NsT3Ab\Utility\HelperUtility;
 use GuzzleHttp\Exception\ClientException;
-use TYPO3\CMS\Backend\Routing\UriBuilder;
-use TYPO3\CMS\Core\Messaging\FlashMessage;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use Psr\Http\Message\ServerRequestInterface;
+use NITSAN\NsT3Ab\Service\AiService;
 use NITSAN\NsT3Ab\Service\FlashMessageService;
+use NITSAN\NsT3Ab\Utility\HelperUtility;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use TYPO3\CMS\Backend\Routing\UriBuilder;
 use TYPO3\CMS\Backend\Template\ModuleTemplate;
-use TYPO3\CMS\Core\Messaging\FlashMessageQueue;
-use TYPO3\CMS\Core\Localization\LanguageService;
 use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
-use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Core\Localization\LanguageService;
+use TYPO3\CMS\Core\Messaging\FlashMessage;
+use TYPO3\CMS\Core\Messaging\FlashMessageQueue;
 use TYPO3\CMS\Core\Messaging\FlashMessageService as CoreFlashMessageService;
-
+use TYPO3\CMS\Core\Page\PageRenderer;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 abstract class AbstractController extends ActionController
 {

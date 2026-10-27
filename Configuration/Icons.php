@@ -32,5 +32,5 @@ return [
     't3ab_content_blocks' => [
         'provider' => SvgIconProvider::class,
         'source' => 'EXT:ns_t3ab/Resources/Public/Icons/t3ab-content-blocks.svg',
-    ]
+    ],
 ];

@@ -1,7 +1,7 @@
 <?php
 
-use NITSAN\NsT3Ab\Controller\ContentBlocksModuleController;
 use NITSAN\NsT3Ab\Controller\ContentBlocksAvailabilityController;
+use NITSAN\NsT3Ab\Controller\ContentBlocksModuleController;
 use TYPO3\CMS\Core\Information\Typo3Version;
 
 $languageFile = 'LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf';

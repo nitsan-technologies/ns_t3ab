@@ -32,8 +32,17 @@ By signing off you agree to the DCO (https://developercertificate.org/).
 
 1. **Open an issue first** for anything non-trivial, so we can agree on the approach before you invest time.
 2. **Branch** from the default branch. Use a short, descriptive branch name.
-3. **Keep TYPO3 12.4, 13.4, and 14.3 working.** This extension declares all three in `composer.json`.
-4. **Update `context/`** when behaviour changes. Those notes stay in git and are left out of release archives.
+3. **Keep TYPO3 12.4, 13.4, and 14.3 working.** This extension declares all three in `composer.json`. Run the same checks CI runs:
+
+   ```
+   composer test
+   composer stan
+   composer cs:check
+   composer ci
+   ```
+
+   `Build/Scripts/runTests.sh` runs those suites in containers, for example `Build/Scripts/runTests.sh -s unit`, `-s cgl`, or `-s lint` (see `-h`).
+4. **Update `context/` and `Documentation/`** when behaviour changes. `context/` stays in git and is left out of release archives.
 5. **Open a pull request** with a clear description of what changed and why. Link the related issue.
 
 ## Reporting bugs

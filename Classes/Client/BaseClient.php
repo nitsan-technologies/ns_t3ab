@@ -144,9 +144,9 @@ class BaseClient
         $requestData['body'] = [
             'headers' => [
                 'Content-Type' => 'application/json',
-                'Authorization' => 'Bearer ' . $this->extConf['openai_api_key']
+                'Authorization' => 'Bearer ' . $this->extConf['openai_api_key'],
             ],
-            'json' => $data
+            'json' => $data,
         ];
         return $requestData;
     }
@@ -167,7 +167,7 @@ class BaseClient
         // Base request body data
         $requestBodyData = [
             'model' => $model,
-            'stream' => false
+            'stream' => false,
         ];
 
         // Add endpoint-specific data structure
@@ -175,8 +175,8 @@ class BaseClient
             $requestBodyData['messages'] = [
                 [
                     'role' => 'user',
-                    'content' => $content
-                ]
+                    'content' => $content,
+                ],
             ];
         } else {
             $requestBodyData['prompt'] = $content;
@@ -186,7 +186,7 @@ class BaseClient
             'temperature',
             'top_k',
             'top_p',
-            'num_predict'
+            'num_predict',
         ];
 
         foreach ($ollamaOptions as $opion) {
@@ -199,7 +199,7 @@ class BaseClient
             'headers' => [
                 'Content-Type' => 'application/json',
             ],
-            'body' => json_encode($requestBodyData)
+            'body' => json_encode($requestBodyData),
         ];
         $requestData['url'] = $this->extConf['ollama_api_url'];
 
@@ -218,32 +218,32 @@ class BaseClient
     {
         $requestData = [];
         $requestPayload = [
-            "contents" => [
-                "parts" => [
-                    ["text" => $data['messages'][0]['content'] ?? $content]
-                ]
+            'contents' => [
+                'parts' => [
+                    ['text' => $data['messages'][0]['content'] ?? $content],
+                ],
             ],
-            "generationConfig" => [
-                "temperature" => 0.1,
-                "maxOutputTokens" => 8192,
-                "stopSequences" => [],
+            'generationConfig' => [
+                'temperature' => 0.1,
+                'maxOutputTokens' => 8192,
+                'stopSequences' => [],
             ],
-            "safetySettings" => [
+            'safetySettings' => [
                 [
-                    "category" => "HARM_CATEGORY_HARASSMENT",
-                    "threshold" => "BLOCK_NONE",
+                    'category' => 'HARM_CATEGORY_HARASSMENT',
+                    'threshold' => 'BLOCK_NONE',
                 ],
                 [
-                    "category" => "HARM_CATEGORY_HATE_SPEECH",
-                    "threshold" => "BLOCK_NONE",
+                    'category' => 'HARM_CATEGORY_HATE_SPEECH',
+                    'threshold' => 'BLOCK_NONE',
                 ],
                 [
-                    "category" => "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-                    "threshold" => "BLOCK_NONE",
+                    'category' => 'HARM_CATEGORY_SEXUALLY_EXPLICIT',
+                    'threshold' => 'BLOCK_NONE',
                 ],
                 [
-                    "category" => "HARM_CATEGORY_DANGEROUS_CONTENT",
-                    "threshold" => "BLOCK_NONE",
+                    'category' => 'HARM_CATEGORY_DANGEROUS_CONTENT',
+                    'threshold' => 'BLOCK_NONE',
                 ],
             ],
         ];
@@ -252,12 +252,12 @@ class BaseClient
         $requestData['url'] = self::GEMINI_API_URL . $model . ':generateContent';
         $requestData['body'] = [
             'query' => [
-                'key' => $this->extConf['gemini_api_key']
+                'key' => $this->extConf['gemini_api_key'],
             ],
             'headers' => [
-                'Content-Type' => 'application/json'
+                'Content-Type' => 'application/json',
             ],
-            'json' => $requestPayload
+            'json' => $requestPayload,
         ];
 
         return $requestData;
@@ -275,20 +275,20 @@ class BaseClient
         $requestData['url'] = $this->extConf['azure_api_endpoint'] . 'openai/deployments/' . $model . '/chat/completions';
         $requestData['body'] = [
             'query' => [
-                'api-version' => $this->extConf['azure_api_version']
+                'api-version' => $this->extConf['azure_api_version'],
             ],
             'headers' => [
                 'Content-Type' => 'application/json',
-                'api-key' => $this->extConf['azure_api_key']
+                'api-key' => $this->extConf['azure_api_key'],
             ],
             'json' => [
                 'messages' => [
                     [
                         'role' => 'user',
-                        'content' => $data['messages'][0]['content'] ?? $content
-                    ]
-                ]
-            ]
+                        'content' => $data['messages'][0]['content'] ?? $content,
+                    ],
+                ],
+            ],
         ];
         return $requestData;
     }
@@ -308,9 +308,9 @@ class BaseClient
             'messages' => [
                 [
                     'role' => 'user',
-                    'content' => $data['messages'][0]['content'] ?? $content
-                ]
-            ]
+                    'content' => $data['messages'][0]['content'] ?? $content,
+                ],
+            ],
         ];
 
         $requestData['url'] = self::CLAUDE_API_URL;
@@ -318,9 +318,9 @@ class BaseClient
             'headers' => [
                 'x-api-key' => $this->extConf['claude_api_key'],
                 'anthropic-version' => '2023-06-01',
-                'content-type' => 'application/json'
+                'content-type' => 'application/json',
             ],
-            'json' => $requestPayload
+            'json' => $requestPayload,
         ];
 
         return $requestData;
@@ -337,22 +337,22 @@ class BaseClient
             'body' => [
                 'headers' => [
                     'Content-Type' => 'application/json',
-                    'Authorization' => 'Bearer ' . $this->extConf['deepseek_api_key']
+                    'Authorization' => 'Bearer ' . $this->extConf['deepseek_api_key'],
                 ],
                 'json' => [
                     'model' => $aiSelectedModel ?: $this->extConf['deepseek_model'],
                     'stop' => $this->extConf['deepseek_stop'] ?? null,
                     'response_format' => [
-                        'type' => $this->extConf['deepseek_response_format'] ?? 'text'
+                        'type' => $this->extConf['deepseek_response_format'] ?? 'text',
                     ],
                     'stream' => (bool)($this->extConf['deepseek_stream'] ?? false),
                     'stream_options' => $this->extConf['deepseek_stream_options'] ?? null,
                     'tools' => $this->extConf['deepseek_tools'] ?? null,
                     'tool_choice' => $this->extConf['deepseek_tool_choice'] ?? 'none',
                     'logprobs' => (bool)($this->extConf['deepseek_logprobs'] ?? false),
-                    'top_logprobs' => $this->extConf['deepseek_top_logprobs'] ?? null
-                ]
-            ]
+                    'top_logprobs' => $this->extConf['deepseek_top_logprobs'] ?? null,
+                ],
+            ],
         ];
 
         return $requestData;
@@ -370,18 +370,18 @@ class BaseClient
             'body' => [
                 'headers' => [
                     'Content-Type' => 'application/json',
-                    'Authorization' => 'Bearer ' . $this->extConf['xai_api_key']
+                    'Authorization' => 'Bearer ' . $this->extConf['xai_api_key'],
                 ],
                 'json' => [
                     'model' => $aiSelectedModel ?: $this->extConf['xai_model'],
                     'messages' => $data['messages'],
                     'response_format' => [
-                        'type' => $this->extConf['xai_response_format'] ?? 'text'
+                        'type' => $this->extConf['xai_response_format'] ?? 'text',
                     ],
                     'temperature' => (float)$this->extConf['xai_temperature'] ?? null,
                     'max_tokens' => (int)$this->extConf['xai_max_tokens'] ?? null,
-                ]
-            ]
+                ],
+            ],
         ];
         return $requestData;
     }
@@ -449,7 +449,7 @@ class BaseClient
         $generatedText = '';
         if (isset($responseArray['content'][0]['text'])) {
             $generatedText = $responseArray['content'][0]['text'];
-            $substring = ":";
+            $substring = ':';
             // Find the position of the first occurrence of the substring
             $position = strpos($generatedText, $substring);
 
@@ -519,19 +519,19 @@ class BaseClient
                 'GET',
                 [
                     'headers' => [
-                        'Authorization' => $authorization
-                    ]
+                        'Authorization' => $authorization,
+                    ],
                 ]
             );
             $resJsonBody = $response->getBody()->getContents();
             return [
                 'success' => true,
-                'responseData' => json_decode($resJsonBody, true)
+                'responseData' => json_decode($resJsonBody, true),
             ];
         } catch (Exception $e) {
             return [
                 'success' => false,
-                'responseData' => $e->getMessage()
+                'responseData' => $e->getMessage(),
             ];
         }
     }

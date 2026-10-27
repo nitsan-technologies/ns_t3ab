@@ -3,10 +3,13 @@
 # Requires a workflow that runs actions/labeler.
 documentation:
   - changed-files:
-      - any-glob-to-any-file: ['**/*.md', 'context/**/*']
+      - any-glob-to-any-file: ['**/*.md', 'Documentation/**/*', 'context/**/*']
+tests:
+  - changed-files:
+      - any-glob-to-any-file: ['Tests/**/*', 'Build/phpunit/**/*']
 ci:
   - changed-files:
-      - any-glob-to-any-file: ['.github/**/*']
+      - any-glob-to-any-file: ['.github/**/*', 'Build/**/*']
 dependencies:
   - changed-files:
       - any-glob-to-any-file: ['composer.json', 'composer.lock']

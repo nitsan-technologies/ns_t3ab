@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace NITSAN\NsT3Ab\ViewHelpers;
 
+use NITSAN\NsT3Ab\ExtensionManager\AiEngineConfiguration;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
-use NITSAN\NsT3Ab\ExtensionManager\AiEngineConfiguration;
 
 class GetAiEngineViewHelper extends AbstractViewHelper
 {

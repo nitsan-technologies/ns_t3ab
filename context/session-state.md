@@ -2,6 +2,12 @@
 
 *Living work log — update at end of each session.*
 
+## 2026-10-27 — CI runner and documentation
+
+**Done:** Added `Build/Scripts/runTests.sh`, unit test, PHPStan, PHP-CS-Fixer, `Documentation/`, and workflows `core12.yml`, `core13.yml`, `core14.yml`, and `documentation.yml`.
+
+**Last touched:** 2026-10-27
+
 ## 2026-10-27 — GitHub community files and README
 
 **Done:** README uses the product-page hero and describes Content Blocks and AI Forms. Added community docs and `.github` issue, PR, Dependabot, labeler, and TER release files. Core and documentation workflows stay out until a test runner and `Documentation/` exist.
@@ -22,7 +28,7 @@
 
 ## 2026-10-27 — Content Blocks under Administration
 
-**Done:** `nst3ab_content_blocks` parent is `tools` (Administration), matching `ns_t3al`. Page tree removed.
+**Done:** `nst3ab_content_blocks` parent is `tools` (Administration)Page tree removed.
 
 **Last touched:** 2026-10-27
 

@@ -17,7 +17,8 @@ final class FormPersistenceBridgeFactory
     public function __construct(
         private readonly FormPersistenceBridgeV14 $v14,
         private readonly FormPersistenceBridgeLegacy $legacy,
-    ) {}
+    ) {
+    }
 
     public function get(): FormPersistenceBridgeInterface
     {

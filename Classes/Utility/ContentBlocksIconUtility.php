@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace NITSAN\NsT3Ab\Utility;
 
-
 class ContentBlocksIconUtility
 {
     private static array $icons = [
@@ -863,7 +862,7 @@ class ContentBlocksIconUtility
         'actions-window-cog',
         'actions-window-open',
         'actions-window-restore',
-        'actions-window'
+        'actions-window',
     ];
 
     public static function getIcons(): array

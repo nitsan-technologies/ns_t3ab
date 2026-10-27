@@ -6,5 +6,6 @@
 .cache
 /composer.json.testing
 .php-cs-fixer.cache
+/Documentation-GENERATED-temp
 .DS_Store
 .idea/

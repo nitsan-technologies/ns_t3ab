@@ -16,7 +16,7 @@ class ContentBlocksYamlConfig
         'Email',
         'Textarea',
         'Number',
-        'DateTime'
+        'DateTime',
     ];
 
     /**
@@ -25,7 +25,7 @@ class ContentBlocksYamlConfig
     private static $allowedMultiSelectFields = [
         'Checkbox',
         'Radio',
-        'Select'
+        'Select',
     ];
 
     /**
@@ -80,7 +80,7 @@ class ContentBlocksYamlConfig
     {
         $fieldType = ucfirst(strtolower($fieldType)); // Normalize input (e.g., 'email' -> 'Email')
 
-        switch($fieldType) {
+        switch ($fieldType) {
             case 'Email':
                 return 'Email';
             case 'File':
@@ -123,7 +123,7 @@ class ContentBlocksYamlConfig
     public static function getFieldConfig(array $field): array
     {
         $fieldType = self::proceedFieldType($field['type'] ?? '');
-        switch($fieldType) {
+        switch ($fieldType) {
             case 'Email':
                 return self::emailFieldConfig($field);
             case 'File':
@@ -133,9 +133,11 @@ class ContentBlocksYamlConfig
             case 'Checkbox':
                 return self::optionsRelatedFieldConfig($field, 'Checkbox');
             case 'Select':
-                return self::optionsRelatedFieldConfig($field, 'Select');;
+                return self::optionsRelatedFieldConfig($field, 'Select');
+                ;
             case 'Radio':
-                return self::optionsRelatedFieldConfig($field, 'Radio');;
+                return self::optionsRelatedFieldConfig($field, 'Radio');
+                ;
             case 'DateTime':
                 return self::dateTimeFieldConfig($field);
             case 'Number':
@@ -274,7 +276,7 @@ class ContentBlocksYamlConfig
             'label' => $field['label'] ?? 'Label',
             'placeholder' => $field['placeholder'] ?? '',
             'required' => (bool)$field['required'] ?? false,
-            'rows' => 15
+            'rows' => 15,
         ];
     }
 }

@@ -6,9 +6,9 @@ namespace NITSAN\NsT3Ab\Service;
 
 use Composer\InstalledVersions;
 use TYPO3\CMS\Core\Core\Environment;
+use TYPO3\CMS\Core\Package\PackageInterface;
 use TYPO3\CMS\Core\Package\PackageManager;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Core\Package\PackageInterface;
 
 class PackageResolverService
 {
@@ -44,7 +44,7 @@ class PackageResolverService
      */
     protected function removeFrameworkExtensions(array $packages): array
     {
-        return array_filter($packages, fn(PackageInterface $package): bool => !$package->getPackageMetaData()->isFrameworkType());
+        return array_filter($packages, fn (PackageInterface $package): bool => !$package->getPackageMetaData()->isFrameworkType());
     }
 
     /**

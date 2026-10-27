@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace NITSAN\NsT3Ab\Controller;
 
-use Symfony\Component\Mime\Address;
-use TYPO3\CMS\Core\Mail\FluidEmail;
-use TYPO3\CMS\Core\Http\JsonResponse;
 use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Symfony\Component\Mime\Address;
+use TYPO3\CMS\Core\Http\JsonResponse;
+use TYPO3\CMS\Core\Mail\FluidEmail;
 use TYPO3\CMS\Core\Mail\MailerInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use Psr\Http\Message\ServerRequestInterface;
-use NITSAN\NsT3Ab\Controller\AbstractController;
 
 class FeatureAndBugReportController extends AbstractController
 {

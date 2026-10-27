@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-use NITSAN\NsT3Ab\Controller\FormsModuleController;
 use NITSAN\NsT3Ab\Controller\ContentBlocksModuleController;
-
+use NITSAN\NsT3Ab\Controller\FormsModuleController;
 
 return [
     't3ab_generate_ai_form_fields' => [
@@ -13,7 +12,7 @@ return [
     ],
     'ai_form' => [
         'path' => '/get/ai-form/config',
-        'target' => FormsModuleController::class . '::renderFormGenerationTemplateAction'
+        'target' => FormsModuleController::class . '::renderFormGenerationTemplateAction',
     ],
     't3ab_ai_form_create' => [
         'path' => '/create/ai-form',
@@ -29,6 +28,6 @@ return [
     ],
     'ai_content_blocks' => [
         'path' => '/get/ai-content-element/config',
-        'target' => ContentBlocksModuleController::class . '::renderContentElementGenerationTemplateAction'
+        'target' => ContentBlocksModuleController::class . '::renderContentElementGenerationTemplateAction',
     ],
 ];

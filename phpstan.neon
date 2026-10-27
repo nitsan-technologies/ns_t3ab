@@ -1,0 +1,20 @@
+parameters:
+    level: 3
+    bootstrapFiles:
+        - Build/phpstan-bootstrap.php
+    paths:
+        - Classes
+        - Configuration
+        - Tests
+        - ext_localconf.php
+        - ext_tables.php
+    parallel:
+        maximumNumberOfProcesses: 4
+    tmpDir: .Build/phpstan
+    treatPhpDocTypesAsCertain: false
+    excludePaths:
+        # These files call TYPO3 or Content Blocks APIs that differ between 12, 13, and 14.
+        - Classes/Controller/ContentBlocksModuleController.php
+        - Classes/EventListener/ModifyButtonBarEventListener.php
+        - Classes/Service/Form/FormPersistenceBridgeLegacy.php
+        - Classes/Service/Form/FormPersistenceBridgeV14.php

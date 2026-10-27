@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace NITSAN\NsT3Ab\Service;
 
 use NITSAN\NsT3Ab\Client\BaseClient;
-use TYPO3\CMS\Core\Http\RequestFactory;
 use NITSAN\NsT3Ab\Utility\HelperUtility;
+use TYPO3\CMS\Core\Http\RequestFactory;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class AiService
@@ -28,15 +28,14 @@ class AiService
         string $prompt,
         string $type,
         array $parsedBody
-    )
-    {
+    ) {
         $jsonContent = [
-            "model" => $this->extConf['openai_model'],
-            "temperature" => (float)$this->extConf['openai_temperature'],
-            "max_tokens" => (int)$this->extConf['openai_max_tokens'],
-            "top_p" => (float)$this->extConf['openai_top_p'],
-            "frequency_penalty" => (float)$this->extConf['openai_frequency_penalty'],
-            "presence_penalty" => (float)$this->extConf['openai_presence_penalty']
+            'model' => $this->extConf['openai_model'],
+            'temperature' => (float)$this->extConf['openai_temperature'],
+            'max_tokens' => (int)$this->extConf['openai_max_tokens'],
+            'top_p' => (float)$this->extConf['openai_top_p'],
+            'frequency_penalty' => (float)$this->extConf['openai_frequency_penalty'],
+            'presence_penalty' => (float)$this->extConf['openai_presence_penalty'],
         ];
         switch ($type) {
             case 'AiForm' :
@@ -46,7 +45,7 @@ class AiService
                 $this->addAiContentBlocksPrompt($jsonContent, $prompt);
                 break;
             default:
-                $jsonContent["prompt"] = $prompt;
+                $jsonContent['prompt'] = $prompt;
                 break;
         }
         $aiModel = $parsedBody['text-api-model'];
@@ -71,12 +70,12 @@ class AiService
     protected function addAiFormPrompt(array &$jsonContent, string $prompt): void
     {
         if ($this->isChatGptRequest()) {
-            $jsonContent["messages"][] = [
+            $jsonContent['messages'][] = [
                 'role' => 'user',
-                'content' => 'Create a TYPO3 form structure in JSON format for "' . $prompt . '". Include the following elements type, identifier, label, placeholder and required. Do not include any other text or comments. Must follow this response format is form->fields.'
+                'content' => 'Create a TYPO3 form structure in JSON format for "' . $prompt . '". Include the following elements type, identifier, label, placeholder and required. Do not include any other text or comments. Must follow this response format is form->fields.',
             ];
         } else {
-            $jsonContent["prompt"] = 'Create a TYPO3 form structure in JSON format for "' . $prompt . '". Include the following elements type, identifier, label, placeholder and required';
+            $jsonContent['prompt'] = 'Create a TYPO3 form structure in JSON format for "' . $prompt . '". Include the following elements type, identifier, label, placeholder and required';
         }
     }
 
@@ -88,12 +87,12 @@ class AiService
     protected function addAiContentBlocksPrompt(array &$jsonContent, string $prompt): void
     {
         if ($this->isChatGptRequest()) {
-            $jsonContent["messages"][] = [
+            $jsonContent['messages'][] = [
                 'role' => 'user',
-                'content' => 'Create a TYPO3 form structure in JSON format for "' . $prompt . '". Include the following elements type, identifier, label, placeholder and required. Do not include any other text or comments. Must follow this response format is form->fields.'
+                'content' => 'Create a TYPO3 form structure in JSON format for "' . $prompt . '". Include the following elements type, identifier, label, placeholder and required. Do not include any other text or comments. Must follow this response format is form->fields.',
             ];
         } else {
-            $jsonContent["prompt"] = 'Create a TYPO3 form structure in JSON format for "' . $prompt . '". Include the following elements type, identifier, label, placeholder and required';
+            $jsonContent['prompt'] = 'Create a TYPO3 form structure in JSON format for "' . $prompt . '". Include the following elements type, identifier, label, placeholder and required';
         }
     }
 

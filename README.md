@@ -4,6 +4,9 @@
 [![TYPO3 13](https://img.shields.io/badge/TYPO3-13-important.svg?logo=typo3)](https://get.typo3.org/version/13)
 [![TYPO3 12](https://img.shields.io/badge/TYPO3-12-important.svg?logo=typo3)](https://get.typo3.org/version/12)
 [![PHP](https://img.shields.io/badge/PHP-8.2%20to%208.5-777BB4?logo=php&logoColor=white)](https://www.php.net/)
+[![core 12](https://github.com/nitsan-technologies/ns_t3ab/actions/workflows/core12.yml/badge.svg)](https://github.com/nitsan-technologies/ns_t3ab/actions/workflows/core12.yml)
+[![core 13](https://github.com/nitsan-technologies/ns_t3ab/actions/workflows/core13.yml/badge.svg)](https://github.com/nitsan-technologies/ns_t3ab/actions/workflows/core13.yml)
+[![core 14](https://github.com/nitsan-technologies/ns_t3ab/actions/workflows/core14.yml/badge.svg)](https://github.com/nitsan-technologies/ns_t3ab/actions/workflows/core14.yml)
 
 # T3AB – TYPO3 AI Builder (`ns_t3ab`)
 
@@ -59,6 +62,24 @@ Classic mode: install the extension in **Admin Tools → Extensions**.
 | `selectPackageToStoreAiContentElements` | Package that receives generated Content Blocks |
 
 Store the API key for each provider you select. Keys stay in extension configuration.
+
+## Development
+
+```bash
+composer install
+composer test
+composer ci
+```
+
+GitHub Actions (`.github/workflows/core12.yml`, `core13.yml`, `core14.yml`) run lint, unit tests, PHP-CS-Fixer, and PHPStan for each TYPO3 major through the Docker test runner:
+
+```bash
+Build/Scripts/runTests.sh -t 14 -p 8.3 -s composerInstallHighest
+Build/Scripts/runTests.sh -t 14 -p 8.3 -s unit
+Build/Scripts/runTests.sh -h
+```
+
+`Documentation/` is rendered by `.github/workflows/documentation.yml`. `Build/`, `Tests/`, and `context/` stay in git and are left out of release archives.
 
 ## License
 

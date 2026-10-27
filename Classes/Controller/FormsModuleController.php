@@ -4,20 +4,19 @@ declare(strict_types=1);
 
 namespace NITSAN\NsT3Ab\Controller;
 
-use Symfony\Component\Yaml\Yaml;
-use TYPO3\CMS\Core\Http\JsonResponse;
-use Psr\Http\Message\ResponseInterface;
-use NITSAN\NsT3Ab\Utility\HelperUtility;
-use TYPO3\CMS\Core\Utility\ArrayUtility;
 use GuzzleHttp\Exception\ClientException;
-use TYPO3\CMS\Core\Http\RedirectResponse;
-use TYPO3\CMS\Core\Utility\StringUtility;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use Psr\Http\Message\ServerRequestInterface;
-use TYPO3\CMS\Form\Type\FormDefinitionArray;
-use NITSAN\NsT3Ab\Controller\AbstractController;
 use NITSAN\NsT3Ab\Service\Form\FormPersistenceBridgeFactory;
 use NITSAN\NsT3Ab\Service\Form\FormPersistenceBridgeInterface;
+use NITSAN\NsT3Ab\Utility\HelperUtility;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Symfony\Component\Yaml\Yaml;
+use TYPO3\CMS\Core\Http\JsonResponse;
+use TYPO3\CMS\Core\Http\RedirectResponse;
+use TYPO3\CMS\Core\Utility\ArrayUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\StringUtility;
+use TYPO3\CMS\Form\Type\FormDefinitionArray;
 
 class FormsModuleController extends AbstractController
 {
@@ -239,7 +238,7 @@ class FormsModuleController extends AbstractController
                 'type' => 'Page',
                 'identifier' => 'page-1',
                 'label' => 'Step',
-                'renderables' => $finalizeFields
+                'renderables' => $finalizeFields,
             ];
         } else {
             $finalizeFormData = $typo3FormResponseData;

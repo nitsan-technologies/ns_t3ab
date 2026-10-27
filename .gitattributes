@@ -3,5 +3,9 @@
 /.gitattributes export-ignore
 /.github export-ignore
 /.gitignore export-ignore
+/.php-cs-fixer.php export-ignore
 /AGENTS.md export-ignore
+/Build export-ignore
+/Tests export-ignore
 /context export-ignore
+/phpstan.neon export-ignore

@@ -17,7 +17,8 @@ final class FormPersistenceBridgeV14 implements FormPersistenceBridgeInterface
         private readonly FormPersistenceManagerInterface $formPersistenceManager,
         private readonly FormConfigurationManagerInterface $formConfigurationManager,
         private readonly ExtbaseConfigurationManagerInterface $configurationManager,
-    ) {}
+    ) {
+    }
 
     public function getFormSettings(): array
     {

@@ -6,14 +6,15 @@ namespace NITSAN\NsT3Ab\Service;
 
 use NITSAN\NsT3Ab\Utility\HelperUtility;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Messaging\FlashMessageService as FlashService;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class FlashMessageService
 {
     protected FlashService $flashMessageService;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->flashMessageService = GeneralUtility::makeInstance(FlashService::class);
     }
 
@@ -62,7 +63,7 @@ class FlashMessageService
     /**
      * @param string $title
      * @param string $message
-     * @param [type] $severity
+     * @param mixed $severity
      * @return void
      */
     protected function addFlashMessageWithSeverity(
@@ -83,4 +84,3 @@ class FlashMessageService
         $query->addMessage($flashMessage);
     }
 }
-
