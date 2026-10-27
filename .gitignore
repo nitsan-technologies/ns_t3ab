@@ -1,0 +1,10 @@
+# Dev tooling (composer.json require-dev) installs into .Build/.
+/.Build/
+/composer.lock
+/var/
+/.composer/
+.cache
+/composer.json.testing
+.php-cs-fixer.cache
+.DS_Store
+.idea/

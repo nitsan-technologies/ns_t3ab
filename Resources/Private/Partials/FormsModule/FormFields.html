@@ -1,0 +1,51 @@
+<div class="list-group t3ab-sortable overflow-auto p-2 border" style="max-height: 160px;">
+    <f:if condition="{responseForm.renderables}">
+        <f:then>
+            <f:for each="{responseForm.renderables}" as="sortItem">
+                <div class="list-group-item p-2 typo3-form nested border rounded-0 pe-sm-0">
+                    <div class="row w-100">
+                        <div class="col-12 col-sm-3">
+                            <span class="type" data-type="{sortItem.type}">
+                                <select class="form-select form-select-sm mb-2 mb-sm-0" name="new-type[]">
+                                    <f:for each="{formElements}" as="fValue" key="fKey">
+                                        <option value="{fKey}" {f:if(condition: '{sortItem.type}=={fKey}', then: 'selected')}>{fKey}</option>
+                                    </f:for>
+                                </select>
+                            </span>
+                        </div>
+                        <div class="col-12 col-sm-7">
+                            <input type="hidden" class="form-control"  value="{sortItem.identifier}" name="new-identifier[]">
+                            <span class="title" data-title="{sortItem.label}">
+                                <input type="text" name="new-label[]" class="form-control form-control-sm" required value="{sortItem.label}">
+                            </span>
+                        </div>
+                        <div class="col-12 col-sm-2 mt-2 mt-sm-0 pe-sm-0 text-sm-end">
+                            <button class="btn btn-default btn-sm ns-t3ab-drag-handle" type="button"><core:icon identifier="actions-drag" size="small"/></button>
+                            <f:render section="deleteButton" />
+                        </div>
+                    </div>
+                </div>
+            </f:for>
+        </f:then>
+        <f:else>
+            <div class="typo3-messages">
+                <div class="alert alert-danger">
+                    <div class="media">
+                        <div class="media-left">
+                            <core:icon identifier="actions-info-circle" size="default" />
+                        </div>
+                        <div class="media-body">
+                            <h5 class="alert-title mb-0">
+                                <f:translate key="invalid_prompt_error" extensionName="ns_t3ab" />
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </f:else>
+    </f:if>
+</div>
+
+<f:section name="deleteButton">
+    <button type="button" class="delete btn btn-sm btn-default m-0"><core:icon identifier="actions-delete" size="small"/></button>
+</f:section>

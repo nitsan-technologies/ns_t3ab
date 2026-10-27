@@ -1,0 +1,192 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers">
+
+<f:layout name="Default" />
+
+<f:section name="content">
+    <f:asset.css identifier="t3ab-sortable-styles" href="EXT:ns_t3ab/Resources/Public/Css/sortable.css" />
+    <f:asset.script identifier="t3ab-sortable-lib" src="EXT:ns_t3ab/Resources/Public/JavaScript/sortable.js" />
+    <f:asset.script identifier="t3ab-sortable-script" src="EXT:ns_t3ab/Resources/Public/JavaScript/sortable-ai-form-app.js" />
+    <div class="t3ab-modal-content">
+        <div class="t3js-modal-body modal-body">
+            <div class="mb-2">
+                <form action="{reGenerateUrl}" method="POST" id="content-block-regenerate-form">
+                    <input type="hidden" name="packageName" value="{packageName}" />
+                    <input type="hidden" name="contentBlockKey" value="{contentBlockKey}" />
+                    <input type="hidden" name="elementName" value="{elementName}" />
+                    <input type="hidden" name="text-api-model" value="{text-api-model}">
+                    <input type="hidden" name="aiSelectedModel" value="{aiSelectedModel}">
+                    <input type="hidden" name="cbIcon" value="{cbIcon}" />
+                    <input type="hidden" name="category" value="{category}" />
+                    <input type="hidden" name="elementDescription" value="{elementDescription}">
+                    <div class="row">
+                        <div class="col-12 mb-1">
+                            <div class="form-group">
+                                <label for="content-block-description" class="form-label"><f:translate key="content_blocks.prompt" extensionName="ns_t3ab" /></label>
+                                <textarea class="form-control" name="contentBlockPrompt" id="content-block-description"
+                                    rows="6" required>{contentBlockPrompt}</textarea>
+                            </div>
+                        </div>
+                            <div class="col-12 mb-5">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <a href="{backUrl}" class="btn btn-default">
+                                        <span class="me-1"><core:icon identifier="actions-arrow-left-alt" size="small" /></span>
+                                        <f:translate key="content_blocks.back" extensionName="ns_t3ab"/>
+                                    </a>
+                                    <button type="submit" class="btn btn-primary mb-2" id="generate-content-element-fields">
+                                        <span class="me-1"><core:icon identifier="t3ab_magic" size="small" /></span>
+                                        <f:translate key="content_blocks.regenerate" extensionName="ns_t3ab" />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <f:render section="add-new-row" arguments="{_all}" />
+                    <div class="d-flex mb-2">
+                        <button class="btn btn-secondary mb-2" id="add-new-field">
+                            <span class="me-1"><core:icon identifier="actions-plus" size="small"/></span>
+                            <f:translate key="content_blocks.add_new_field" extensionName="ns_t3ab" />
+                        </button>
+                    </div>
+                    <div class="list-group d-none d-sm-flex">
+                        <div class="list-group-item py-2 typo3-form nested border rounded-0">
+                            <div class="row w-100 align-items-center">
+                                <div class="col-12 col-sm-3"><span class="fw-bold"><f:translate key="content_blocks.field.type" extensionName="ns_t3ab" /></span></div>
+                                <div class="col-12 col-sm-5"><span class="fw-bold"><f:translate key="content_blocks.field.label" extensionName="ns_t3ab" /></span></div>
+                                <div class="col-12 col-sm-2 text-sm-center"><span class="fw-bold"><f:translate key="content_blocks.field.required" extensionName="ns_t3ab" /></span></div>
+                                <div class="col-12 col-sm-2 text-sm-end"><span class="fw-bold"><f:translate key="content_blocks.field.actions" extensionName="ns_t3ab" /></span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <form action="{createUrl}" method="POST" class="form t3ab-ce-field-list" id="generate-content-element-form">
+                        <div id="sortable-pages" class="sortable-wrap">
+                            <div class="list-group t3ab-sortable overflow-auto border rounded-0 p-2" id="content-blocks-field-list" style="max-height: 270px;">
+                                <f:for each="{validYamlArray}" as="sortItem">
+                                    <div class="list-group-item p-2 typo3-form nested border rounded-0 mb-2 pe-0">
+                                        <div class="row w-100 align-items-center">
+                                            <div class="col-12 col-sm-3">
+                                                <span class="type" data-type="{sortItem.type}">
+                                                    <select class="form-select form-select-sm mb-2 mb-sm-0" id="aiForm-type-sortable-input"
+                                                        name="{sortItem.identifier}-type">
+                                                        <f:if
+                                                            condition="{sortItem.type} == 'Checkbox' || {sortItem.type} == 'Radio' || {sortItem.type} == 'Select'">
+                                                            <f:then>
+                                                                <f:variable name="selectFields">{allowedMultiSelectFields}
+                                                                </f:variable>
+                                                            </f:then>
+                                                            <f:else>
+                                                                <f:if
+                                                                    condition="{sortItem.type} == 'File' || {sortItem.type} == 'Image'">
+                                                                    <f:then>
+                                                                        <f:variable name="selectFields">{allowedFalFields}</f:variable>
+                                                                    </f:then>
+                                                                    <f:else>
+                                                                        <f:variable name="selectFields">{allowedTextFields}</f:variable>
+                                                                    </f:else>
+                                                                </f:if>
+                                                            </f:else>
+                                                        </f:if>
+                                                        <f:for each="{selectFields}" as="fValue">
+                                                            <option value="{fValue}" {f:if(condition: '{sortItem.type}=={fValue}' ,
+                                                                then: 'selected' )}>{fValue}</option>
+                                                        </f:for>
+                                                    </select>
+                                                </span>
+                                            </div>
+                                            <div class="col-12 col-sm-5">
+                                                <span class="title" data-title="{sortItem.label}">
+                                                    <input type="text" class="form-control form-control-sm" id="aiForm-label-sortable-input"
+                                                        required value="{sortItem.label}" name="{sortItem.identifier}-label">
+                                                </span>
+                                            </div>
+                                            <div class="col-6 col-sm-2 text-md-center">
+                                                <div class="form-check mb-0">
+                                                    <input class="form-check-input mx-sm-auto fs-3" type="checkbox"
+                                                        name="{sortItem.identifier}-required"
+                                                        {f:if(condition: "{sortItem.required} == 'TRUE'" , then: 'checked' )}
+                                                        data-form-check-label-checked="{f:translate(key:'content_blocks.is_required', extensionName:'ns_t3ab')}"
+                                                        data-form-check-label-unchecked="{f:translate(key:'content_blocks.is_required', extensionName:'ns_t3ab')}">
+                                                </div>
+                                            </div>
+                                            <div class="col-6 col-sm-2 text-end pe-sm-0 mt-2 mt-sm-0">
+                                                <button class="btn btn-default btn-sm ns-t3ab-drag-handle" type="button"><core:icon identifier="actions-drag" size="small"/></button>
+                                                <button type="button" class="delete btn btn-default m-0 btn-sm"><core:icon identifier="actions-delete" size="small"/></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </f:for>
+                            </div>
+                            <input type="hidden" name="validYamlArrayJson" value="{validYamlArrayJson}">
+                            <input type="hidden" name="packageName" value="{packageName}" />
+                            <input type="hidden" name="contentBlockKey" value="{contentBlockKey}" />
+                            <input type="hidden" name="elementName" value="{elementName}" />
+                            <input type="hidden" name="cbIcon" value="{cbIcon}" />
+                            <input type="hidden" name="contentBlockPrompt" value="{contentBlockPrompt}" />
+                            <input type="hidden" name="category" value="{category}" />
+                        <input type="hidden" name="elementDescription" value="{elementDescription}">
+                        </div>
+                    </form>
+                </div>
+                <f:variable name="spinnerMessage" value="Content is being generated, this may take a moment..." />
+                <div id="ns-t3ab__loader">
+                    <core:icon identifier="t3ab_loading" size="large" alternativeMarkupIdentifier="inline" />
+                    <span class="loader-text">
+                        <f:translate key="t3ab.loader" extensionName="ns_t3ab" />
+                    </span>
+                </div>
+            </div>
+            <div class="t3js-modal-footer modal-footer">
+                <div class="row justify-content-between w-100 row-cols-auto g-0 align-items-center">
+                    <f:render partial="Links" />
+                    <div class="col">
+                        <button class="btn btn-notice" t3ab-modal="close">
+                            <core:icon identifier="actions-close" size="small" />
+                            <f:translate key="modal.close" extensionName="ns_t3ab" />
+                        </button>
+                        <button type="submit" class="btn btn-primary" id="create-content-element" form="generate-content-element-form">
+                            <span class="me-1"><core:icon identifier="t3ab_magic" size="small" /></span>
+                            <f:translate key="content_blocks.save.close" extensionName="ns_t3ab" />
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</f:section>
+
+<f:section name="add-new-row">
+    <div id="new-row-content" class="d-none">
+        <div class="list-group-item p-2 typo3-form nested border rounded-0 mb-2 pe-0">
+            <div class="row w-100 align-items-center">
+                <div class="col-12 col-sm-3">
+                    <span class="type" data-type="{sortItem.type}" >
+                        <select class="form-select form-select-sm mb-2 mb-sm-0" id="aiForm-type-sortable-input" name="new-type[]">
+                            <f:for each="{allowedFields}" as="fValue">
+                                <option value="{fValue}" {f:if(condition: '{sortItem.type}=="Text"', then: 'selected')}>{fValue}</option>
+                            </f:for>
+                        </select>
+                    </span>
+                </div>
+                <div class="col-12 col-sm-5">
+                    <span class="title" data-title="{sortItem.label}">
+                        <input type="text" class="form-control form-control-sm" id="aiForm-label-sortable-input" required name="new-label[]">
+                    </span>
+                </div>
+                <div class="col-6 col-sm-2 text-md-center">
+                    <div class="form-check mb-0">
+                        <input
+                            class="form-check-input mx-sm-auto fs-3"
+                            type="checkbox"
+                            name="new-required[]"
+                            data-form-check-label-checked="{f:translate(key:'content_blocks.is_required', extensionName:'ns_t3ab')}"
+                            data-form-check-label-unchecked="{f:translate(key:'content_blocks.is_required', extensionName:'ns_t3ab')}"
+                        >
+                    </div>
+                </div>
+                <div class="col-6 col-sm-2 text-end pe-sm-0 mt-2 mt-sm-0">
+                    <button class="btn btn-default btn-sm ns-t3ab-drag-handle" type="button"><core:icon identifier="actions-drag" size="small"/></button>
+                    <button type="button" class="delete btn btn-default m-0 btn-sm"><core:icon identifier="actions-delete" size="small"/></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</f:section>

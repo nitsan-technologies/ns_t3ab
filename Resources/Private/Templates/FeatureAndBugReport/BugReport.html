@@ -1,0 +1,101 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers">
+
+<f:layout name="Default" />
+
+<f:section name="content">
+    <f:asset.css identifier="t3ab-sortable-styles" href="EXT:ns_t3ab/Resources/Public/Css/sortable.css" />
+    <f:asset.script identifier="t3ab-sortable-lib" src="EXT:ns_t3ab/Resources/Public/JavaScript/sortable.js" />
+    <f:asset.script identifier="t3ab-sortable-script"
+        src="EXT:ns_t3ab/Resources/Public/JavaScript/sortable-ai-form-app.js" />
+    <div class="t3ab-modal-content">
+        <div class="t3js-modal-body modal-body">
+            <form action="" id="bug-report">
+                <input type="hidden" name="submitType" value="bugReport">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label class="form-label" for="name">
+                                <f:translate key="report_issue.name" extensionName="ns_t3ab" />
+                            </label>
+                                <input class="form-control" type="text" id="name" name="name" required>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label class="form-label" for="email">
+                                    <f:translate key="report_issue.email" extensionName="ns_t3ab" />
+                                </label>
+                                <input class="form-control" type="email" required id="email" name="email">
+                            </div>
+                        </div>
+                    </div>
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="form-label" for="issue-type">
+                                <f:translate key="report_issue.issue_type" extensionName="ns_t3ab" />
+                            </label>
+                            <select class="form-select" id="issue-type" name="issueType">
+                                <option value="Bug">
+                                    <f:translate key="report_issue.issue_type.bug" extensionName="ns_t3ab" />
+                                </option>
+                                <option value="Feature Request">
+                                    <f:translate key="report_issue.issue_type.feature_request" extensionName="ns_t3ab" />
+                                </option>
+                                <option value="Technical Problem">
+                                    <f:translate key="report_issue.issue_type.technical_problem" extensionName="ns_t3ab" />
+                                </option>
+                                <option value="Other">
+                                    <f:translate key="report_issue.issue_type.other" extensionName="ns_t3ab" />
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="description">
+                                <f:translate key="report_issue.description" extensionName="ns_t3ab" />
+                            </label>
+                            <textarea class="form-control" id="description" name="description" rows="5"
+                                required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="attachments">
+                                <f:translate key="t3ai.form.attachments" extensionName="ns_t3ab" />
+                            </label>
+                            <input class="form-control" type="file" accept="audio/*,video/*,image/*"
+                                id="attachments" name="attachments">
+                            <span class="small">
+                                <f:translate key="report_issue.attachments.allow_file" extensionName="ns_t3ab" /> <strong>
+                                    <f:translate key="report_issue.attachments.allow_file_format" extensionName="ns_t3ab" />
+                                </strong>
+                            </span>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="t3js-modal-footer modal-footer">
+                <div class="row justify-content-end w-100 row-cols-auto g-0 align-items-center">
+                    <div class="col">
+                        <button class="btn btn-secondary" t3ab-modal="close">
+                            <core:icon identifier="actions-close" size="small" />
+                            <f:translate key="modal.close" extensionName="ns_t3ab" />
+                        </button>
+                        <button type="submit" class="btn btn-primary ms-2" form="bug-report">
+                            <span class="me-1">
+                                <core:icon identifier="t3ab_magic" size="small" />
+                            </span>
+                            <f:translate key="report_issue.attachments.submit" extensionName="ns_t3ab" />
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div id="ns-t3ab__loader">
+        <core:icon identifier="t3ab_loading" size="large" alternativeMarkupIdentifier="inline" />
+        <span class="loader-text">
+            <f:translate key="t3ab.loader" extensionName="ns_t3ab" />
+        </span>
+    </div>
+</f:section>

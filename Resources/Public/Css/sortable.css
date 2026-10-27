@@ -1,0 +1,99 @@
+.t3ab-sortable .list-group-item {
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid light-dark(#262626, #afaeae);
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 5px;
+  padding: 1rem;
+  position: relative;
+}
+
+.t3ab-sortable .list-group {
+  border: 1px dashed light-dark(#262626, #afaeae);
+  flex-basis: 100%;
+  flex-grow: 2;
+  margin-top: 1rem;
+  min-height: 30px;
+}
+
+.list-group-item .list-group-item {
+  flex-basis: 100%;
+  flex-grow: 2;
+  margin: 5px;
+}
+
+.t3ab-sortable .nested {
+  background-color: light-dark(#fafafa, #262626);
+}
+
+.t3ab-sortable .list-group-item:first-child {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+.t3ab-sortable .list-group-item .list-group-item {
+  margin-top: 0.25rem;
+}
+
+.t3ab-sortable .list-group-item:focus,
+.list-group-item:hover {
+  text-decoration: none;
+  z-index: 1;
+}
+
+.t3ab-sortable .list-group-item:hover {
+  z-index: 0;
+}
+
+.t3ab-sortable .handle {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  cursor: move;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+  padding: 5px 10px;
+}
+
+.t3ab-sortable button.add {
+  margin-top: 5px;
+  text-align: center;
+}
+
+.t3ab-sortable button.edit {
+  margin: 0.5rem 0 0.5rem 1rem;
+}
+
+.t3ab-sortable button.delete,
+.t3ab-sortable button.dropdown {
+  margin: 0.5rem 0 0.5rem 0.5rem;
+}
+.t3ab-sortable button.dropdown.closed {
+  transform: rotate(180deg);
+}
+
+.t3ab-sortable > .list-group-item {
+  max-width: 100%;
+  overflow: auto;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.t3ab-sortable > .list-group-item.submenu--closed .t3ab-sortable {
+  max-height: 0;
+  min-height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.sortable-wrap .sortable-input {
+  background: #00000091;
+  display: none;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99999;
+}
+
+.sortable-wrap .sortable-input.active {
+  display: block;
+}

@@ -1,0 +1,44 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers">
+
+<f:layout name="Default"/>
+<f:section name="content">
+    <div class="t3ab-modal-content">
+        <div class="t3js-modal-body modal-body">
+            <form action="{f:be.uri(route: 't3ab_generate_ai_form_fields')}" id="fieldGenerateForm"  enctype="multipart/form-data" method="POST" class="form mb-2">
+                <f:render partial="AiModels" arguments="{_all}" />
+                <input type="hidden" property="textGenerationLibraries" name="textGenerationLibraries" value="{textGenerationLibraries -> f:format.json()}" />
+                <div class="prompt-settings">
+                    <div class="form-group">
+                        <label class="form-label" for="prompt"><f:translate key="t3ab.prompt" extensionName="ns_t3ab" /></label>
+                        <textarea name="prompt" rows="7" class="form-control" id="prompt" placeholder="{f:translate(key: 'aiForm.form.prompt', extensionName:'ns_t3ab')}" required></textarea>
+                    </div>
+                    <f:comment>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">
+                                <span class="me-1"><core:icon identifier="t3ab_magic" size="small"/></span><f:translate key="t3ab.generate.ai_form" extensionName="ns_t3ab" />
+                            </button>
+                        </div>
+                    </f:comment>
+                </div>
+            </form>
+        </div>
+        <div class="t3js-modal-footer modal-footer">
+            <div class="row justify-content-between w-100 row-cols-auto g-0 align-items-center">
+                <f:render partial="Links" />
+                <div class="col">
+                    <button class="btn btn-secondary" t3ab-modal="close">
+                        <span class="me-1"><core:icon identifier="actions-close" size="small" /></span><f:translate key="modal.close" extensionName="ns_t3ab" />
+                    </button>
+                    <button type="submit" class="btn btn-primary ms-2" form="fieldGenerateForm">
+                        <span class="me-1"><core:icon identifier="t3ab_magic" size="small"/></span><f:translate key="t3ab.generate.ai_form" extensionName="ns_t3ab" />
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <f:variable name="spinnerMessage" value="Content is being generated, this may take a moment..." />
+    <div id="ns-t3ab__loader">
+        <core:icon identifier="t3ab_loading" size="large" alternativeMarkupIdentifier="inline" />
+        <span class="loader-text loader-text w-100 text-center"><f:translate key="t3ab.loader" extensionName="ns_t3ab" /></span>
+    </div>
+</f:section>

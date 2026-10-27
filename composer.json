@@ -1,0 +1,51 @@
+{
+    "name": "nitsan/ns-t3ab",
+    "type": "typo3-cms-extension",
+    "homepage": "https://t3planet.com",
+    "description": "T3AB helps you build TYPO3 content blocks, and AI-powered forms, fast and customizable. Just describe your idea, and T3AB generates clean, ready-to-use TYPO3 code with full flexibility.",
+    "authors": [
+        {
+            "name": "Team T3Planet",
+            "role": "Developer",
+            "homepage": "https://t3planet.com",
+            "email": "support@t3planet.com"
+        }
+    ],
+    "support": {
+        "issues": "https://t3planet.com/support"
+    },
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": ">=8.2 <9",
+        "typo3/cms-core": "^12.4 || ^13.4 || ^14.3",
+        "typo3/cms-form": "^12.4 || ^13.4 || ^14.3",
+        "nitsan/ns-license": ">=14.3.0"
+    },
+    "suggest": {
+        "friendsoftypo3/content-blocks": "Required for AI Content Blocks module (0.7.x on TYPO3 12, 1.x on 13, 2.x on 14)"
+    },
+    "autoload": {
+        "psr-4": {
+            "NITSAN\\NsT3Ab\\": "Classes"
+        }
+    },
+    "replace": {
+        "typo3-ter/ns-t3ab": "self.version"
+    },
+    "config": {
+        "vendor-dir": ".Build/vendor",
+        "bin-dir": ".Build/bin",
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true,
+            "typo3/class-alias-loader": true,
+            "typo3/cms-composer-installers": true
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "web-dir": ".Build/public",
+            "extension-key": "ns_t3ab"
+        }
+    }
+}

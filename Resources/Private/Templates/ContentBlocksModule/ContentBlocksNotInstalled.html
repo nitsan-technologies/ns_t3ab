@@ -1,0 +1,18 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers">
+
+<f:layout name="Default" />
+
+<f:section name="content">
+    <div class="module t3ab-module">
+        <div class="dashboard-header t3js-module-docheader">
+            <f:render partial="ContentBlocksModule/Header" />
+        </div>
+        <div class="module-body t3js-module-body">
+            <div class="mt-2">
+                <f:flashMessages queueIdentifier="ns_t3ab" />
+            </div>
+        </div>
+    </div>
+</f:section>
+</html>

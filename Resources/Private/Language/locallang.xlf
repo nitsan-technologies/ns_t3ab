@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext"
+    original="EXT:ns_t3ab/Resources/Private/Language/locallang.xlf"
+    date="2025-07-08T11:26:11Z" product-name="ns_t3ab">
+        <header />
+        <body>
+            <trans-unit id="t3ab.prompt" resname="t3ab.prompt">
+                <source>Prompt</source>
+            </trans-unit>
+            <trans-unit id="aiForm.form.prompt" resname="aiForm.form.prompt">
+				<source>Example, Create NGO donation form.</source>
+			</trans-unit>
+            <trans-unit id="t3ab.generate.ai_form">
+				<source>Generate AI Form</source>
+			</trans-unit>
+			<trans-unit id="t3ab.regenerate.ai_form">
+				<source>Regenerate</source>
+			</trans-unit>
+            <trans-unit id="t3ab.loader" resname="t3ab.loader">
+				<source>Please hold on while T3AB generates amazing results!</source>
+			</trans-unit>
+            <trans-unit id="content.ai-form" resname="content.ai-form">
+				<source>AI Forms</source>
+			</trans-unit>
+			<trans-unit id="content.ai-form.description" resname="content.ai-form.description">
+				<source>Create AI-powered forms for your site—just give a prompt and get a fully integrated TYPO3 form instantly.</source>
+			</trans-unit>
+			<trans-unit id="content.ai-content-blocks" resname="content.ai-content-blocks">
+				<source>AI Content Blocks</source>
+			</trans-unit>
+			<trans-unit id="content.ai-content-blocks.description" resname="content.ai-content-blocks.description">
+				<source>Create AI-powered Content Blocks for your site—just give a prompt and get a fully integrated in Page instantly.</source>
+			</trans-unit>
+            <trans-unit id="aimodule.ollama" resname="aimodule.ollama">
+				<source>Ollama</source>
+			</trans-unit>
+            <trans-unit id="aimodule.openai" resname="aimodule.openai">
+				<source>ChatGPT</source>
+			</trans-unit>
+			<trans-unit id="aimodule.deepseek" resname="aimodule.deepseek">
+				<source>Deepseek</source>
+			</trans-unit>
+			<trans-unit id="aimodule.gemini" resname="aimodule.gemini">
+				<source>Gemini</source>
+			</trans-unit>
+			<trans-unit id="aimodule.azure" resname="aimodule.azure">
+				<source>Azure</source>
+			</trans-unit>
+			<trans-unit id="aimodule.claude" resname="aimodule.claude">
+				<source>Claude</source>
+			</trans-unit>
+			<trans-unit id="aimodule.xai" resname="aimodule.xai">
+				<source>XAI</source>
+			</trans-unit>
+            <trans-unit id="t3ab.apimodal.ollama_model_missing">
+				<source>Olalma model is not available, Please Add Olalma model in settings</source>
+			</trans-unit>
+            <trans-unit id="t3ab.apimodal.key_missing">
+                <source>API key is not available, Please Add API key in settings</source>
+            </trans-unit>
+            <trans-unit id="t3ab.apimodal.warning" resname="t3ab.apimodal.warning">
+				<source>We recommend using OpenAI API&#039;s for better results.</source>
+			</trans-unit>
+			<trans-unit id="t3ab.current-prompt" resname="t3ab.current-prompt">
+				<source>Current Prompt</source>
+			</trans-unit>
+			<trans-unit id="invalid_prompt_error" resname="invalid_prompt_error">
+				<source>Please Enter Proper Prompts</source>
+			</trans-unit>
+			<trans-unit id="content_blocks.selected_package" resname="content_blocks.selected_package">
+				<source>Select Package</source>
+			</trans-unit>
+			<trans-unit id="content_blocks.select_category" resname="content_blocks.select_category">
+				<source>Select Category</source>
+			</trans-unit>
+			<trans-unit id="content_blocks.name" resname="content_blocks.name">
+				<source>Content Block Name</source>
+			</trans-unit>
+			<trans-unit id="module.forms.generate_ai_form" resname="module.forms.generate_ai_form">
+                <source>Generate AI Form</source>
+            </trans-unit>
+			<trans-unit id="content_blocks.description" resname=" content_blocks.description">
+				<source>Content Block Description</source>
+			</trans-unit>
+			<trans-unit id="error_title" resname="error_title">
+                <source>Something went wrong</source>
+            </trans-unit>
+			<trans-unit id="content_blocks.key" resname="content_blocks.key">
+				<source>Content Block Key</source>
+			</trans-unit>
+			<trans-unit id="content_blocks.key_suggestion" resname="content_blocks.key_suggestion">
+				<source> will be used as content element key.</source>
+			</trans-unit>
+			<trans-unit id="content_blocks.prompt" resname="content_blocks.prompt">
+				<source>Prompt</source>
+			</trans-unit>
+			<trans-unit id="content_blocks.create" resname="content_blocks.create">
+				<source>Create</source>
+			</trans-unit>
+			<trans-unit id="content_blocks.regenerate" resname="content_blocks.regenerate">
+				<source>Regenerate</source>
+			</trans-unit>
+			<trans-unit id="content_blocks.is_required" resname="content_blocks.is_required">
+				<source>Required</source>
+			</trans-unit>
+			<trans-unit id="content_blocks.back" resname="content_blocks.back">
+				<source>Back</source>
+			</trans-unit>
+			<trans-unit id="content_blocks.add_new_field" resname="content_blocks.add_new_field">
+				<source>Add New Field</source>
+			</trans-unit>
+			<trans-unit id="modal.cancel" resname="modal.cancel">
+				<source>Cancel</source>
+			</trans-unit>
+			<trans-unit id="select_ai_model" resname="select_ai_model">
+				<source>Select Your AI model</source>
+			</trans-unit>
+			<trans-unit id="content_blocks.field.type" resname="content_blocks.type">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="content_blocks.field.label" resname="content_blocks.label">
+				<source>Label</source>
+			</trans-unit>
+			<trans-unit id="content_blocks.field.required" resname="content_blocks.required">
+				<source>Required</source>
+			</trans-unit>
+			<trans-unit id="content_blocks.field.actions" resname="content_blocks.actions">
+				<source>Actions</source>
+			</trans-unit>
+			<trans-unit id="content_blocks.icon" resname="content_blocks.icon">
+				<source>Icon</source>
+			</trans-unit>
+			<trans-unit id="content_blocks.list.vendor" resname="content_blocks.list.vendor">
+				<source>Vendor</source>
+			</trans-unit>
+			<trans-unit id="content_blocks.list.name" resname="content_blocks.list.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="content_blocks.list.extension" resextension="content_blocks.list.extension">
+				<source>Extension</source>
+			</trans-unit>
+			<trans-unit id="content_blocks.createButton" resextension="content_blocks.createButton">
+				<source>Create Content Block</source>
+			</trans-unit>
+			<trans-unit id="content_blocks.noContentBlock" resextension="content_blocks.noContentBlock">
+				<source>No Content Blocks Found</source>
+			</trans-unit>
+			<trans-unit id="feature_suggestion.name" resextension="feature_suggestion.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="feature_suggestion.email" resextension="feature_suggestion.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="feature_suggestion.description" resextension="feature_suggestion.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="feature_suggestion.attachments" resextension="feature_suggestion.attachments">
+				<source>Attachments (Optional)</source>
+			</trans-unit>
+			<trans-unit id="feature_suggestion.attachments.allow_file" resextension="feature_suggestion.attachments.allow_file">
+				<source>Allow File Extension</source>
+			</trans-unit>
+			<trans-unit id="feature_suggestion.attachments.allow_file_format" resextension="feature_suggestion.attachments.allow_file_format">
+				<source>audio/*,video/*,image/*</source>
+			</trans-unit>
+			<trans-unit id="feature_suggestion.submit" resextension="feature_suggestion.submit">
+				<source>Submit Suggestion</source>
+			</trans-unit>
+			<trans-unit id="feature_suggestion.email.heading" resextension="feature_suggestion.email.heading">
+				<source>New Feature Request</source>
+			</trans-unit>
+			<trans-unit id="report_issue.name" resextension="report_issue.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="report_issue.email" resextension="report_issue.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="report_issue.issue_type" resextension="report_issue.issue_type">
+				<source>Issue Type</source>
+			</trans-unit>
+			<trans-unit id="report_issue.issue_type.feature_request" resextension="report_issue.issue_type.feature_request">
+				<source>Feature Request</source>
+			</trans-unit>
+			<trans-unit id="report_issue.issue_type.technical_problem" resextension="report_issue.issue_type.technical_problem">
+				<source>Technical Problem</source>
+			</trans-unit>
+			<trans-unit id="report_issue.issue_type.other" resextension="report_issue.issue_type.other">
+				<source>Other</source>
+			</trans-unit>
+			<trans-unit id="report_issue.issue_type.bug" resextension="report_issue.issue_type.bug">
+				<source>Bug</source>
+			</trans-unit>
+			<trans-unit id="report_issue.description" resextension="report_issue.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="report_issue.attachments.allow_file" resextension="report_issue.attachments.allow_file">
+				<source>Allow File Extension</source>
+			</trans-unit>
+			<trans-unit id="report_issue.attachments.allow_file_format" resextension="report_issue.attachments.allow_file_format">
+				<source>audio/*,video/*,image/*</source>
+			</trans-unit>
+			<trans-unit id="report_issue.attachments.submit" resextension="report_issue.attachments.submit">
+				<source>Submit</source>
+			</trans-unit>
+			<trans-unit id="report_issue.email.heading" resextension="report_issue.email.heading">
+				<source>New Issue Reported</source>
+			</trans-unit>
+			<trans-unit id="content_blocks.save.close" resname="content_blocks.save.close">
+				<source>Save and Close</source>
+			</trans-unit>
+			<trans-unit id="modal.close" resname="modal.close">
+				<source>Close</source>
+			</trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -1,0 +1,73 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers">
+
+<f:layout name="Default" />
+
+<f:section name="content">
+    <div class="module t3ab-module">
+        <div class="dashboard-header t3js-module-docheader">
+            <f:render partial="ContentBlocksModule/Header" />
+            <button class="btn btn-primary" id="create-new-content-block"><f:translate key="content_blocks.createButton" extensionName="ns_t3ab" /></button>
+        </div>
+        <div class="module-body t3js-module-body">
+            <div class="card-container">
+                <f:if condition="{availableContentBlocks -> f:count()} > 0">
+                    <f:then>
+                        <f:for each="{availableContentBlocks}" as="contentBlock" iteration="i">
+                            <div class="card card-size-small widget">
+                                <div class="card-header">
+                                    <div class="card-icon"><core:icon identifier="{contentBlock.iconData.iconIdentifier}" size="medium" /></div>
+                                    <div class="card-header-body">
+                                        <h2 class="card-title padding-right-lg fw-bold">{contentBlock.title}</h2>
+                                        <span class="card-subtitle">
+                                            <f:format.crop maxCharacters="100">{contentBlock.description}</f:format.crop>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table t3ab-cb-table">
+                                        <tbody>
+                                          <tr>
+                                            <th><strong><f:translate key="content_blocks.list.vendor" extensionName="ns_t3ab" />:</strong></th>
+                                            <td>{contentBlock.vendor}</td>
+                                          </tr>
+                                          <tr>
+                                            <th><strong><f:translate key="content_blocks.list.name" extensionName="ns_t3ab" />:</strong></th>
+                                            <td class="text-capitalize">{contentBlock.name}</td>
+                                          </tr>
+                                          <tr>
+                                            <th><strong><f:translate key="content_blocks.list.extension" extensionName="ns_t3ab" />:</strong></th>
+                                            <td>{contentBlock.extension}</td>
+                                          </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="card-footer d-flex justify-content-end">
+                                    <button
+                                        type="button"
+                                        class="btn btn-sm btn-default content-block-files-preview"
+                                        data-package-name="{contentBlock.extension}"
+                                        data-content-block-key="{contentBlock.name}"
+                                        data-title="{contentBlock.title}"
+                                    ><core:icon identifier="actions-eye" size="small" /></button>
+                                    <button type="button" data-ext-path="{contentBlock.extPath}" data-name="{contentBlock.name}" class="btn btn-sm btn-default content-block-delete ms-2"><core:icon identifier="actions-delete" size="small" /></button>
+                                </div>
+                            </div>
+                        </f:for>
+                        <f:variable name="spinnerMessage" value="Content is being generated, this may take a moment..." />
+                        <div id="ns-t3ab__loader">
+                          <core:icon identifier="t3ab_loading" size="large" alternativeMarkupIdentifier="inline" />
+                          <span class="loader-text">
+                            <f:translate key="t3ab.loader" extensionName="ns_t3ab" />
+                          </span>
+                        </div>
+                    </f:then>
+                    <f:else>
+                        <f:translate key="content_blocks.noContentBlock" extensionName="ns_t3ab" />
+                    </f:else>
+                </f:if>
+            </div>
+        </div>
+    </div>
+</f:section>
+</html>

@@ -1,0 +1,171 @@
+<div class="accordion accordion-flush">
+    <label class="form-label w-100"><f:translate key="select_ai_model" extensionName="ns_t3ab" /></label>
+    <div class="ns-t3ab__aimodel-choose form-group">
+        <label class="form-label w-100">{f:translate(key:'choose.aimodule', extensionName: 'ns_t3ab')}</label>
+        <div id="api-model" class="select-api-model justify-content-between" role="tablist">
+            <f:if condition="{t3ab:GetAiEngine(engineType:'text') -> f:count()} > 0">
+                <f:for each="{t3ab:GetAiEngine(engineType:'text')}" as="textEngineModel" key="textEngine">
+                    <input type="radio" class="btn-check text-api-model" name="text-api-model" id="sourse{textEngine}{aiModelRenderType}" autocomplete="off" value="{textEngine}"
+                    {f:if(condition: '{defaultModel} == {textEngine}', then: 'checked')}>
+                    <label class="btn btn-default btn-sm mb-2 me-1 {f:if(condition: '{defaultModel} == {textEngine}', then: 'active')}" data-bs-toggle="tab" data-bs-target="#collapse{textEngine}" aria-expanded="false"
+                           aria-controls="collapse{textEngine}" for="sourse{textEngine}{aiModelRenderType}">{f:translate(key:'aimodule.{textEngine}', extensionName: 'ns_t3ab')}</label>
+                </f:for>
+            </f:if>
+        </div>
+    </div>
+    <div class="tab-content">
+    <div class="tab-pane text-api-model-collapse {f:if(condition: '{defaultModel} == openai', then: 'active')}" id="collapseopenai" role="tabpanel">
+        <div class="form-group">
+            <f:if condition="{t3ab:GetAiEngine(engineType:'text', engineName:'openai' ) -> f:count()} > 0">
+                <f:for each="{t3ab:GetAiEngine(engineType:'text', engineName:'openai' )}" as="openaiModel" iteration="it">
+                        <input type="radio" class="btn-check text-api-model" name="openai-models" id="{openaiModel}{aiModelRenderType}" autocomplete="off" value="{openaiModel}"
+                        {f:if(condition: '({extensionConfig.defaultOpenAIModel} == {openaiModel} && !{defaultOpenAIModel}) || {defaultOpenAIModel} == {openaiModel}' ,then: 'checked')}>
+                        <label class="btn btn-default btn-sm mb-2 me-1" for="{openaiModel}{aiModelRenderType}">{openaiModel}</label>
+                </f:for>
+            </f:if>
+        </div>
+        <f:if condition="!{extensionConfig.openai_api_key}">
+            <div class="alert alert-warning alert-dismissible fade show d-flex justify-content-between" role="alert">
+                <strong><f:translate key="t3ab.apimodal.key_missing" extensionName="ns_t3ab"/></strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </f:if>
+    </div>
+    <div class="tab-pane text-api-model-collapse {f:if(condition: '{defaultModel} == gemini', then: 'active')}" id="collapsegemini" role="tabpanel">
+        <div class="form-group">
+            <f:if condition="{t3ab:GetAiEngine(engineType:'text', engineName:'gemini' ) -> f:count()} > 0">
+                <f:for each="{t3ab:GetAiEngine(engineType:'text', engineName:'gemini' )}" as="geminiModel" iteration="it">
+                        <input type="radio" class="btn-check text-api-model" name="gemini-models" id="{geminiModel}{aiModelRenderType}" autocomplete="off" value="{geminiModel}"
+                        {f:if(condition: '({extensionConfig.defaultGeminiModel}  == {geminiModel} && !{defaultGeminiModel})|| {defaultGeminiModel}  == {geminiModel}', then: 'checked')}>
+                        <label class="btn btn-default btn-sm" for="{geminiModel}{aiModelRenderType}">{geminiModel}</label>
+                </f:for>
+            </f:if>
+        </div>
+        <f:if condition="!{extensionConfig.gemini_api_key}">
+            <f:then>
+                <div class="alert alert-warning alert-dismissible fade show d-flex justify-content-between" role="alert">
+                    <strong><f:translate key="t3ab.apimodal.key_missing" extensionName="ns_t3ab"/></strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </f:then>
+            <f:else>
+                <div class="alert alert-warning alert-dismissible fade show apimodal_warning d-flex justify-content-between" role="alert">
+                    <strong><f:translate key="t3ab.apimodal.warning" extensionName="ns_t3ab"/></strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </f:else>
+        </f:if>
+    </div>
+    <div class="tab-pane text-api-model-collapse {f:if(condition: '{defaultModel} == azure', then: 'active')}" id="collapseazure" role="tabpanel">
+        <div class="form-group">
+            <f:if condition="{t3ab:GetAiEngine(engineType:'text', engineName:'azure' ) -> f:count()} > 0">
+                <f:for each="{t3ab:GetAiEngine(engineType:'text', engineName:'azure' )}" as="azureModel" iteration="it">
+                        <input type="radio" class="btn-check text-api-model" name="azure-models" id="{azureModel}{aiModelRenderType}" autocomplete="off" value="{azureModel}" {f:if(condition: '{it.index} == 0', then: 'checked')}>
+                        <label class="btn btn-default btn-sm" for="{azureModel}{aiModelRenderType}">{azureModel}</label>
+                </f:for>
+            </f:if>
+        </div>
+        <f:if condition="!{extensionConfig.azure_api_key}">
+            <f:then>
+                <div class="alert alert-warning alert-dismissible fade show d-flex justify-content-between" role="alert">
+                    <strong><f:translate key="t3ab.apimodal.key_missing" extensionName="ns_t3ab"/></strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </f:then>
+            <f:else>
+                <div class="alert alert-warning alert-dismissible fade show apimodal_warning d-flex justify-content-between" role="alert">
+                    <strong><f:translate key="t3ab.apimodal.warning" extensionName="ns_t3ab"/></strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </f:else>
+        </f:if>
+    </div>
+    <div class="tab-pane text-api-model-collapse {f:if(condition: '{defaultModel} == claude', then: 'active')}" id="collapseclaude" role="tabpanel">
+        <div class="form-group">
+            <f:if condition="{t3ab:GetAiEngine(engineType:'text', engineName:'claude' ) -> f:count()} > 0">
+                <f:for each="{t3ab:GetAiEngine(engineType:'text', engineName:'claude' )}" as="claudeModel" iteration="it">
+                    <input type="radio" class="btn-check text-api-model" name="claude-models" id="{claudeModel}" autocomplete="off" value="{claudeModel}"
+                    {f:if(condition: '({extensionConfig.defaultClaudeModel} == {claudeModel} && !{defaultClaudeModel}) || {defaultClaudeModel} == {claudeModel}' ,then: 'checked')}>
+                    <label class="btn btn-default btn-sm" for="{claudeModel}">{claudeModel}</label>
+                </f:for>
+            </f:if>
+        </div>
+        <f:if condition="!{extensionConfig.claude_api_key}">
+            <f:then>
+                <div class="alert alert-warning alert-dismissible fade show d-flex justify-content-between" role="alert">
+                    <strong><f:translate key="t3ab.apimodal.key_missing" extensionName="ns_t3ab"/></strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </f:then>
+            <f:else>
+                <div class="alert alert-warning alert-dismissible fade show apimodal_warning d-flex justify-content-between" role="alert">
+                    <strong><f:translate key="t3ab.apimodal.warning" extensionName="ns_t3ab"/></strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </f:else>
+        </f:if>
+    </div>
+    <f:variable name="enableOllama">{t3ab:ExtConfig(key:'enable_ollama_model')}</f:variable>
+    <f:if condition="{enableOllama}">
+        <div class="tab-pane text-api-model-collapse {f:if(condition: '{defaultModel} == ollama', then: 'active')}" id="collapseollama" role="tabpanel">
+            <div class="form-group">
+                <f:if condition="{t3ab:GetAiEngine(engineType:'text', engineName:'ollama' ) -> f:count()} > 0">
+                    <f:for each="{t3ab:GetAiEngine(engineType:'text', engineName:'ollama' )}" as="ollamaModel" iteration="it">
+                        <input type="radio" class="btn-check text-api-model" name="ollama-models" id="{ollamaModel}" autocomplete="off" value="{ollamaModel}"
+                        {f:if(condition: '({extensionConfig.defaultGeminiModel}  == {geminiModel} && !{defaultGeminiModel})|| {defaultGeminiModel}  == {geminiModel}', then: 'checked')}>
+                        <label class="btn btn-default btn-sm" for="{ollamaModel}">{ollamaModel}</label>
+                    </f:for>
+                </f:if>
+            </div>
+            <f:if condition="{t3ab:GetAiEngine(engineType: 'text', engineName: 'ollama') -> f:count()} <= 0">
+                <f:then>
+                    <div class="alert alert-warning alert-dismissible fade show d-flex justify-content-between" role="alert">
+                        <strong><f:translate key="t3ab.apimodal.ollama_model_missing" extensionName="ns_t3ab"/></strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </f:then>
+                <f:else>
+                    <div class="alert alert-warning alert-dismissible fade show apimodal_warning d-flex justify-content-between" role="alert">
+                        <strong><f:translate key="t3ab.apimodal.warning" extensionName="ns_t3ab"/></strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </f:else>
+            </f:if>
+        </div>
+    </f:if>
+    <div class="tab-pane text-api-model-collapse {f:if(condition: '{defaultModel} == deepseek', then: 'active')}" id="collapsedeepseek" role="tabpanel">
+        <div class="form-group">
+            <f:if condition="{t3ab:GetAiEngine(engineType:'text', engineName:'deepseek' ) -> f:count()} > 0">
+                <f:for each="{t3ab:GetAiEngine(engineType:'text', engineName:'deepseek' )}" as="deepseekModel" iteration="it">
+                        <input type="radio" class="btn-check text-api-model" name="deepseek-models" id="{deepseekModel}{aiModelRenderType}" autocomplete="off" value="{deepseekModel}"
+                        {f:if(condition: '({extensionConfig.defaultDeepseekModel} == {deepseekModel} && !{defaultDeepseekModel}) || {defaultDeepseekModel} == {deepseekModel}' ,then: 'checked')}>
+                        <label class="btn btn-default btn-sm" for="{deepseekModel}{aiModelRenderType}">{deepseekModel}</label>
+                </f:for>
+            </f:if>
+        </div>
+        <f:if condition="!{extensionConfig.deepseek_api_key}">
+            <div class="alert alert-warning alert-dismissible fade show d-flex justify-content-between" role="alert">
+                <strong><f:translate key="t3ab.apimodal.key_missing" extensionName="ns_t3ab"/></strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </f:if>
+    </div>
+    <div class="tab-pane text-api-model-collapse {f:if(condition: '{defaultModel} == xai', then: 'active')}" id="collapsexai" role="tabpanel">
+        <div class="form-group">
+            <f:if condition="{t3ab:GetAiEngine(engineType:'text', engineName:'xai' ) -> f:count()} > 0">
+                <f:for each="{t3ab:GetAiEngine(engineType:'text', engineName:'xai' )}" as="xaiModel" iteration="it">
+                        <input type="radio" class="btn-check text-api-model" name="xai-models" id="{xaiModel}{aiModelRenderType}" autocomplete="off" value="{xaiModel}"
+                        {f:if(condition: '({extensionConfig.defaultXaiModel} == {xaiModel} && !{defaultXaiModel}) || {defaultXaiModel} == {xaiModel}' ,then: 'checked')}>
+                        <label class="btn btn-default btn-sm" for="{xaiModel}{aiModelRenderType}">{xaiModel}</label>
+                </f:for>
+            </f:if>
+        </div>
+        <f:if condition="!{extensionConfig.xai_api_key}">
+            <div class="alert alert-warning alert-dismissible fade show d-flex justify-content-between" role="alert">
+                <strong><f:translate key="t3ab.apimodal.key_missing" extensionName="ns_t3ab"/></strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </f:if>
+    </div>
+    </div>
+</div>

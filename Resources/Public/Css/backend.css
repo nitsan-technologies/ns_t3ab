@@ -1,0 +1,354 @@
+#ns-t3ab__loader,
+#ns-t3ab-image-modal__loader {
+  display: none;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+#ns-t3ab__loader.ns-show-overlay,
+#ns-t3ab-image-modal__loader.ns-show-overlay {
+  display: block;
+  z-index: 99999;
+}
+
+#ns-t3ab__loader.ns-show-overlay::after,
+#ns-t3ab-image-modal__loader.ns-show-overlay::after {
+  background-color: light-dark(#fff, #262626);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+#ns-t3ab__loader.ns-show-overlay .icon-t3ab_loading,
+#ns-t3ab-image-modal__loader.ns-show-overlay .icon-t3ab_loading {
+  --icon-size: 70px;
+  height: var(--icon-size);
+  width: var(--icon-size);
+
+  @media (min-width: 768px) {
+    --icon-size: 100px;
+  }
+}
+
+#ns-t3ab__loader .icon,
+#ns-t3ab-image-modal__loader .icon {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+}
+
+#ns-t3ab-image-modal__loader .loader-text,
+#ns-t3ab__loader .loader-text {
+  font-size: 15px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, calc(-50% + 65px));
+  z-index: 9;
+}
+
+.links-btn .btn.t3ab-btn-information {
+  border: 0;
+  min-height: 26px;
+  padding: 2px 5px;
+}
+
+.links-btn .btn {
+  align-items: center;
+  display: inline-flex;
+  margin-inline-end: 0;
+  padding-inline: 1em;
+}
+
+/*Buttons*/
+.btn-notice {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: rgb(30, 30, 30);
+  --bs-btn-border-color: rgb(30, 30, 30);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #404040;
+  --bs-btn-hover-border-color: #353535;
+  --bs-btn-focus-shadow-rgb: 64, 64, 64;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #4b4b4b;
+  --bs-btn-active-border-color: #353535;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: rgb(30, 30, 30);
+  --bs-btn-disabled-border-color: rgb(30, 30, 30);
+}
+
+.btn-secondary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: rgb(115, 115, 115);
+  --bs-btn-border-color: rgb(115, 115, 115);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #626262;
+  --bs-btn-hover-border-color: #5c5c5c;
+  --bs-btn-focus-shadow-rgb: 136, 136, 136;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #5c5c5c;
+  --bs-btn-active-border-color: #565656;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: rgb(115, 115, 115);
+  --bs-btn-disabled-border-color: rgb(115, 115, 115);
+}
+
+.btn-group {
+  font-size: 12px;
+}
+
+.form-group .form-label {
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+  word-break: break-word;
+}
+
+button.dropdown-toggle-link {
+  background: 0 0;
+  border: 0;
+  padding: 0;
+}
+
+.t3ab-module .dashboard-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--module-docheader-bg);
+  border-bottom: 1px solid var(--module-docheader-border-color);
+  min-height: var(--module-docheader-height);
+  padding: var(--module-docheader-padding);
+}
+
+/*
+ * Iframe modal shell (TYPO3 v12–v14).
+ * Do not rely on Bootstrap .modal as the outer wrapper inside Modal.types.iframe —
+ * on v14 that leaves a shrink-to-fit white card with empty space beside it.
+ */
+html:has(.ns-t3ab-iframe-shell),
+html:has(.ns-t3ab-iframe-shell) body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.ns-t3ab-iframe-shell {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* Fills iframe even when html/body height is unset (no :has support) */
+  min-height: 100vh;
+  width: 100%;
+}
+
+.ns-t3ab-iframe-shell .t3ab-modal-content {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  height: 100%;
+  max-height: 100%;
+  max-width: 100%;
+  min-height: 0;
+  width: 100%;
+}
+
+.ns-t3ab-iframe-shell .modal-body,
+.ns-t3ab-iframe-shell .t3js-modal-body {
+  display: block;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: var(--typo3-spacing, 1rem);
+  position: relative;
+}
+
+.ns-t3ab-iframe-shell .modal-footer,
+.ns-t3ab-iframe-shell .t3js-modal-footer {
+  align-items: center;
+  background-color: light-dark(#f7f7f7, #141414);
+  border-top: 1px solid light-dark(#cdcdcd, #383838);
+  display: flex;
+  flex-shrink: 0;
+  gap: 0.5rem;
+  justify-content: space-between;
+  margin-top: auto;
+  padding: calc(var(--typo3-spacing, 1rem) / 2) var(--typo3-spacing, 1rem);
+  position: relative;
+  width: 100%;
+}
+
+.ns-t3ab-iframe-shell .modal-footer > .row,
+.ns-t3ab-iframe-shell .t3js-modal-footer > .row {
+  align-items: center;
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin: 0;
+  width: 100%;
+}
+
+.ns-t3ab-iframe-shell .modal-footer .col,
+.ns-t3ab-iframe-shell .t3js-modal-footer .col {
+  flex: 0 0 auto;
+  max-width: none;
+  width: auto;
+}
+
+/* TYPO3 14 tabs mark the open panel with .active only */
+.ns-t3ab-iframe-shell .text-api-model-collapse {
+  display: none;
+}
+
+.ns-t3ab-iframe-shell .text-api-model-collapse.active {
+  display: block;
+}
+
+.t3ab-modal-content {
+  height: 100%;
+  max-height: 100%;
+  max-width: 100%;
+  width: 100%;
+}
+
+.card-container {
+  container-type: inline-size;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--typo3-card-grid-gap) 0;
+  margin-bottom: var(--typo3-spacing);
+  margin-left: calc(var(--typo3-card-grid-gap) / 2 * -1);
+  margin-right: calc(var(--typo3-card-grid-gap) / 2 * -1);
+}
+
+.card-container .card {
+  margin-bottom: 0;
+  margin-left: calc(var(--typo3-card-grid-gap) / 2);
+  margin-right: calc(var(--typo3-card-grid-gap) / 2);
+}
+
+.btn-default.btn-t3ab-main {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: rgb(30, 30, 30);
+  --bs-btn-border-color: rgb(30, 30, 30);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #404040;
+  --bs-btn-hover-border-color: #353535;
+  --bs-btn-focus-shadow-rgb: 64, 64, 64;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #4b4b4b;
+  --bs-btn-active-border-color: #353535;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: rgb(30, 30, 30);
+
+  --bs-btn-disabled-border-color: rgb(30, 30, 30);
+  --typo3-btn-color: var(--typo3-state-notice-color);
+  --typo3-btn-bg: var(--typo3-state-notice-bg);
+  --typo3-btn-border-color: var(--typo3-state-notice-border-color);
+  --typo3-btn-hover-color: var(--typo3-state-notice-hover-color);
+  --typo3-btn-hover-bg: var(--typo3-state-notice-hover-bg);
+  --typo3-btn-hover-border-color: var(--typo3-state-notice-hover-border-color);
+  --typo3-btn-focus-color: var(--typo3-state-notice-focus-color);
+  --typo3-btn-focus-bg: var(--typo3-state-notice-focus-bg);
+  --typo3-btn-focus-border-color: var(--typo3-state-notice-focus-border-color);
+  --typo3-btn-disabled-color: var(--typo3-state-notice-disabled-color);
+  --typo3-btn-disabled-bg: var(--typo3-state-notice-disabled-bg);
+  --typo3-btn-disabled-border-color: var(
+    --typo3-state-notice-disabled-border-color
+  );
+}
+
+
+.t3ab-cb-table {
+  tr {
+    th {
+      padding-left: 0 !important;
+    }
+  }
+}
+
+.t3ab-ce-field-list {
+  .list-group .list-group-item {
+    overflow: initial;
+  }
+
+  .list-group-item .form-check .form-check-input {
+    float: none;
+  }
+}
+
+.t3ab-cbe-preview-panel {
+  code pre {
+    font-size: 11px;
+  }
+}
+
+.ns-t3ab-custom-select {
+  cursor: pointer;
+}
+
+.ns-t3ab-custom-select-wrapper {
+  position: relative;
+}
+
+.ns-t3ab-custom-options {
+  background-color: var(--typo3-input-bg);
+  border: var(--typo3-input-border-width) solid var(--typo3-state-default-border-color);
+  display: none;
+  max-height: 262px;
+  overflow-y: auto;
+  position: absolute;
+  padding: 5px 0;
+  scroll-behavior: smooth;
+  width: 100%;
+  z-index: 6;
+
+  .ns-t3ab-custom-option {
+    padding: 7px 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: light-dark(#e6e6e6, #333);
+    }
+  }
+}
+
+.ns-t3ab-drag-handle {
+  cursor: move;
+}
+
+/*V11 Compatibility CSS*/
+.t3ab-modal-content {
+  .modal-footer{
+    .links-btn .btn,
+    .btn[t3ab-modal='close'],
+    .btn[type='submit'] {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .links-btn .btn .icon {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+}

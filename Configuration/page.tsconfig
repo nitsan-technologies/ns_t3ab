@@ -1,0 +1,5 @@
+mod.wizards.newContentElement.wizardItems {
+    t3ab_content_blocks.header = LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:aiContentElement.groupName
+}
+// Override EXT:Form Template (v12 & v13)
+templates.typo3/cms-form.7848488484 = nitsan/ns-t3ab:Resources/Private/TemplateOverrides/Form

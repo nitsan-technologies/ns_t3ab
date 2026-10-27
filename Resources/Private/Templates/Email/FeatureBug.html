@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #333333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .field {
+            margin-bottom: 15px;
+        }
+        .field label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .field p {
+            margin: 0;
+            color: #555555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <f:if condition="{submitType} == 'bugReport'">
+            <f:then>
+                <h1><f:translate key="report_issue.email.heading" extensionName="ns_t3ab" /></h1>
+                <div class="field">
+                    <label><f:translate key="report_issue.name" extensionName="ns_t3ab" /></label>
+                    <p>{name}</p>
+                </div>
+                <div class="field">
+                    <label><f:translate key="report_issue.email" extensionName="ns_t3ab" /></label>
+                    <p>{email}</p>
+                </div>
+                <div class="field">
+                    <label><f:translate key="report_issue.issue_type" extensionName="ns_t3ab" /></label>
+                    <p>{issueType}</p>
+                </div>
+                <div class="field">
+                    <label><f:translate key="report_issue.description" extensionName="ns_t3ab" /></label>
+                    <p>{description}</p>
+                </div>
+            </f:then>
+            <f:else>
+                <h1><f:translate key="feature_suggestion.email.heading" extensionName="ns_t3ab" /></h1>
+                <div class="field">
+                    <label><f:translate key="feature_suggestion.name" extensionName="ns_t3ab" /></label>
+                    <p>{name}</p>
+                </div>
+                <div class="field">
+                    <label><f:translate key="feature_suggestion.email" extensionName="ns_t3ab" /></label>
+                    <p>{email}</p>
+                </div>
+                <div class="field">
+                    <label><f:translate key="feature_suggestion.description" extensionName="ns_t3ab" /></label>
+                    <p>{description}</p>
+                </div>
+            </f:else>
+        </f:if>
+        <f:comment>
+            <f:if condition="{source}">
+                <div class="field">
+                    <label><f:translate key="t3ai.source" extensionName="ns_t3ai" /></label>
+                    <p>{source}</p>
+                </div>
+            </f:if>
+        </f:comment>
+    </div>
+</body>
+</html>

@@ -1,0 +1,151 @@
+# cat=AI Engine//10; type=options[openai,gemini,azure,claude,ollama, deepseek, xai]; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.model.default;
+defaultModel = openai
+
+# cat=AI Engine//20; type=options[gpt-4.1,gpt-4o,gpt-5,gpt-5.6-terra,gpt-5.6-sol,gpt-6-luna]; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.defaultOpenAIModel
+defaultOpenAIModel = gpt-4.1
+
+# cat=AI Engine//30; type=options[gemini-3.5-flash-lite, gemini-3.8-flash]; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.defaultGeminiModel
+defaultGeminiModel = gemini-3.5-flash-lite
+
+# cat=AI Engine//40; type=options[claude-haiku-5-5,claude-sonnet-5-5,claude-opus-4-8]; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.defaultClaudeModel
+defaultClaudeModel = claude-sonnet-5-5
+
+# cat=AI Engine//50; type=user[NITSAN\NsT3Ab\ExtensionManager\GlobalConfiguration->getConfiguration]; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.defaultOllamaModel
+defaultOllamaModel =
+
+# cat=AI Engine//60; type=options[deepseek-flash, deepseek-v4-pro]; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.defaultDeepseekModel
+defaultDeepseekModel = deepseek-flash
+
+# cat=AI Engine//70; type=options[grok-2-latest, grok-2-vision-latest]; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.defaultXaiModel
+defaultXaiModel = grok-2-latest
+
+# cat=ChatGPT//10; type=string; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.apiKey
+openai_api_key =
+
+# cat=ChatGPT//15; type=options[gpt-4.1,gpt-4o,gpt-5,gpt-5.6-terra,gpt-5.6-sol,gpt-6-luna]; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.model
+openai_model = gpt-4.1
+
+# cat=ChatGPT//20; type=double; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.temprature
+openai_temperature = 0.7
+
+# cat=ChatGPT//25; type=int+; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.maxToken
+openai_max_tokens = 1300
+
+# cat=ChatGPT//30; type=double; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.topP
+openai_top_p = 0.01
+
+# cat=ChatGPT//35; type=int+; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.bestOf
+openai_best_of = 1
+
+# cat=ChatGPT//40; type=double; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.frequency_penalty
+openai_frequency_penalty = 0.01
+
+# cat=ChatGPT//45; type=double; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.presence_penalty
+openai_presence_penalty = 0.01
+
+# cat=gemini//10; type=string; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.gemini_api_key
+gemini_api_key =
+# cat=gemini//20; type=options[gemini-3.5-flash-lite, gemini-3.8-flash]; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.claude_api_model
+gemini_model = gemini-3.5-flash-lite
+
+# cat=claude//01; type=string; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.claude_api_key
+claude_api_key =
+
+# cat=claude//02;  type=options[claude-haiku-5-5,claude-sonnet-5-5,claude-opus-4-8]; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.claude_api_model
+claude_api_model = claude-sonnet-5-5
+
+# cat=azure//01; type=string; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.azure_api_key
+azure_api_key =
+
+# cat=azure//02;  type=string; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.azure_api_endpoint
+azure_api_endpoint =
+
+# cat=azure//03;  type=string; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.azure_api_model
+azure_api_model = Default
+
+# cat=azure//04;  type=string; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.azure_api_version
+azure_api_version = 2024-02-01
+
+# cat=ollama//01; type=boolean; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.ollama_enable
+enable_ollama_model = 1
+
+# cat=ollama//02; type=string; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.ollama_api_url
+ollama_api_url =
+
+# cat=ollama//03;  type=string; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.ollama_api_model
+ollama_api_model =
+
+# cat=ollama//04; type=string; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.ollama_temperature
+ollama_temperature =
+
+# cat=ollama//05;  type=string; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.ollama_top_k
+ollama_top_k =
+
+# cat=ollama//06; type=string; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.ollama_top_p
+ollama_top_p =
+
+# cat=ollama//07;  type=string; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.ollama_num_predict
+ollama_num_predict =
+
+# cat=DeepSeek//10; type=string; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:deepseek.apiKey
+deepseek_api_key =
+
+# cat=DeepSeek//15; type=options[deepseek-flash, deepseek-v4-pro]; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:deepseek.model
+deepseek_model = deepseek-flash
+
+# cat=DeepSeek//20; type=double; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.temprature
+deepseek_temperature = 0.7
+
+# cat=DeepSeek//25; type=int+; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.maxToken
+deepseek_max_tokens = 2048
+
+# cat=DeepSeek//30; type=double; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.topP
+deepseek_top_p = 0.01
+
+# cat=DeepSeek//35; type=options[text, json_object]; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.response_format
+deepseek_response_format = text
+
+# cat=DeepSeek//40; type=double; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.frequency_penalty
+deepseek_frequency_penalty = 0
+
+# cat=DeepSeek//45; type=double; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.presence_penalty
+deepseek_presence_penalty = 0
+
+# cat=DeepSeek//60; type=string; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.deepseek_stop
+deepseek_stop = null
+
+# cat=DeepSeek//65; type=double; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.deepseek_stream
+deepseek_stream = 0
+
+# cat=DeepSeek//70; type=string; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.deepseek_stream_options
+deepseek_stream_options = null
+
+# cat=DeepSeek//75; type=string; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.deepseek_tools
+deepseek_tools = null
+
+# cat=DeepSeek//80; type=string; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.deepseek_tool_choice
+deepseek_tool_choice = none
+
+# cat=DeepSeek//85; type=double; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.deepseek_logprobs
+deepseek_logprobs = 0
+
+# cat=DeepSeek/90; type=int+; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.deepseek_top_logprobs
+deepseek_top_logprobs = 0
+
+# cat=XAi//10; type=string; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:xai.apiKey
+xai_api_key =
+
+# cat=XAi//15; type=options[grok-2-latest, grok-2-vision-latest]; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:xai.model
+xai_model = grok-2-latest
+
+# cat=XAi//20; type=double; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.temprature
+xai_temperature = 0.7
+
+# cat=XAi//25; type=int+; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.maxToken
+xai_max_tokens = 16384
+
+# cat=XAi//30; type=options[text, json_object]; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.response_format
+xai_response_format = text
+
+# cat=content//10; type=user[NITSAN\NsT3Ab\ExtensionManager\GlobalConfiguration->getConfiguration]; label=LLL:EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf:extmng.content
+content =

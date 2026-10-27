@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext"
+    original="EXT:ns_t3ab/Resources/Private/Language/locallang_be.xlf"
+    date="2025-07-08T11:26:11Z" product-name="ns_t3ab">
+        <header />
+        <body>
+            <trans-unit id="module.t3ab" resname="module.t3ab">
+                <source>T3AB</source>
+            </trans-unit>
+            <trans-unit id="module.dashboard" resname="module.dashboard">
+                <source>Dashboard</source>
+            </trans-unit>
+            <trans-unit id="module.forms" resname="module.forms">
+                <source>AI Forms</source>
+            </trans-unit>
+            <trans-unit id="module.forms.generate_ai_form" resname="module.forms.generate_ai_form">
+                <source>Generate AI Form</source>
+            </trans-unit>
+            <trans-unit id="module.forms.generate_ai_form.success" resname="module.forms.generate_ai_form.success">
+                <source>AI Form Successfully Generated</source>
+            </trans-unit>
+            <trans-unit id="module.content_blocks" resname="module.content_blocks">
+                <source>T3AB (Content Blocks)</source>
+            </trans-unit>
+            <trans-unit id="extmng.model.default" resname="extmng.model.default">
+                <source>Default AI-Model</source>
+            </trans-unit>
+            <trans-unit id="extmng.defaultOpenAIModel" resname="extmng.defaultOpenAIModel">
+                <source>Default ChatGPT model</source>
+            </trans-unit>
+            <trans-unit id="extmng.model" resname="extmng.model">
+                <source>ChatGPT Model: Select the ChatGPT model you want to use as the default setting. You can still choose a different model while using T3AB's features.</source>
+            </trans-unit>
+            <trans-unit id="extmng.defaultClaudeModel" resname="extmng.defaultClaudeModel">
+                <source>Default Claude Model</source>
+            </trans-unit>
+            <trans-unit id="extmng.defaultOllamaModel" resname="extmng.defaultOllamaModel">
+                <source>Default Ollama Model</source>
+            </trans-unit>
+            <trans-unit id="extmng.defaultDeepseekModel" resname="extmng.defaultDeepseekModel">
+                <source>Default Deepseek Model</source>
+            </trans-unit>
+            <trans-unit id="extmng.defaultXaiModel" resname="extmng.defaultXaiModel">
+                <source>Default XAI Model</source>
+            </trans-unit>
+            <trans-unit id="extmng.defaultGeminiModel" resname="extmng.defaultGeminiModel">
+                <source>Default Gemini model</source>
+            </trans-unit>
+            <trans-unit id="extmng.apiKey" resname="extmng.apiKey">
+                <source>ChatGPT API Key</source>
+            </trans-unit>
+            <trans-unit id="extmng.model.default" resname="extmng.model.default">
+                <source>Default AI-Model</source>
+            </trans-unit>
+            <trans-unit id="extmng.temprature" resname="extmng.temprature">
+                <source>Temprature: Select a sampling temperature between 0 and 2. Higher values, such as 0.8, result in more random outputs, while lower values, such as 0.2, produce more focused and deterministic responses.</source>
+            </trans-unit>
+            <trans-unit id="extmng.maxToken" resname="extmng.maxToken">
+                <source>Max Tokens: The combined token count of your prompt and `max_tokens` must not exceed the model's context length. Most models have a context length of 2048 tokens, while the newest models support up to 4096 tokens.</source>
+            </trans-unit>
+            <trans-unit id="extmng.topP" resname="extmng.topP">
+                <source>Top P: An alternative to sampling with temperature is nucleus sampling, where the model focuses on tokens within the top_p probability mass. For example, a top_p value of 0.1 means only the tokens that make up the top 10% of the probability mass are considered.</source>
+            </trans-unit>
+            <trans-unit id="extmng.bestOf" resname="extmng.bestOf">
+                <source>Best Of</source>
+            </trans-unit>
+            <trans-unit id="extmng.frequency_penalty" resname="extmng.frequency_penalty">
+                <source>Frequency Penalty: A value between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text, reducing the likelihood of the model repeating the same line verbatim.</source>
+            </trans-unit>
+            <trans-unit id="extmng.presence_penalty" resname="extmng.presence_penalty">
+                <source>Presence Penalty: A value between -2.0 and 2.0. Positive values penalize new tokens based on their occurrence in the text so far, increasing the model's likelihood to discuss new topics.</source>
+            </trans-unit>
+            <trans-unit id="extmng.gemini_api_key" resname="extmng.gemini_api_key">
+                <source>API Key</source>
+            </trans-unit>
+            <trans-unit id="extmng.claude_api_key" resname="extmng.claude_api_key">
+                <source>API Key</source>
+            </trans-unit>
+            <trans-unit id="extmng.claude_api_model" resname="extmng.claude_api_model">
+                <source>Model</source>
+            </trans-unit>
+            <trans-unit id="extmng.azure_api_key" resname="extmng.azure_api_key">
+                <source>Azure API key</source>
+            </trans-unit>
+            <trans-unit id="extmng.azure_api_endpoint" resname="extmng.azure_api_endpoint">
+                <source>API Endpoint</source>
+            </trans-unit>
+            <trans-unit id="extmng.azure_api_model" resname="extmng.azure_api_model">
+                <source>Your deployment name for GPT models</source>
+            </trans-unit>
+            <trans-unit id="extmng.azure_api_version" resname="extmng.azure_api_version">
+                <source> API version</source>
+            </trans-unit>
+            <trans-unit id="extmng.ollama_enable" resname="extmng.ollama_enable">
+                <source>Enable ollama Ai Engine</source>
+            </trans-unit>
+            <trans-unit id="extmng.ollama_api_url" resname="extmng.ollama_api_url">
+                <source>Api url with end point </source>
+            </trans-unit>
+            <trans-unit id="extmng.ollama_api_model" resname="extmng.ollama_api_model">
+                <source>Your deployment name for model </source>
+            </trans-unit>
+            <trans-unit id="extmng.ollama_temperature" resname="extmng.ollama_temperature">
+                <source>Temperature </source>
+            </trans-unit>
+            <trans-unit id="extmng.ollama_top_k" resname="extmng.ollama_top_k">
+                <source>top_k </source>
+            </trans-unit>
+            <trans-unit id="extmng.ollama_top_p" resname="extmng.ollama_top_p">
+                <source>top_p</source>
+            </trans-unit>
+            <trans-unit id="extmng.ollama_num_predict" resname="extmng.ollama_api_model">
+                <source>Num predict</source>
+            </trans-unit>
+            <trans-unit id="deepseek.apiKey" resname="deepseek.apiKey">
+                <source>Deepseek API Key</source>
+            </trans-unit>
+            <trans-unit id="deepseek.model" resname="deepseek.model">
+                <source>Deepseek Model</source>
+            </trans-unit>
+            <trans-unit id="extmng.response_format" resname="extmng.response_format">
+                <source>Response Format</source>
+            </trans-unit>
+            <trans-unit id="extmng.deepseek_stop" resname="extmng.deepseek_stop">
+                <source>Stop</source>
+            </trans-unit>
+            <trans-unit id="extmng.deepseek_stream" resname="extmng.deepseek_stream">
+                <source>Stream</source>
+            </trans-unit>
+            <trans-unit id="extmng.deepseek_stream_options" resname="extmng.deepseek_stream_options">
+                <source>Stream Options</source>
+            </trans-unit>
+            <trans-unit id="extmng.deepseek_tools" resname="extmng.deepseek_tools">
+                <source>Tools</source>
+            </trans-unit>
+            <trans-unit id="extmng.deepseek_tool_choice" resname="extmng.deepseek_tool_choice">
+                <source>Tool choice</source>
+            </trans-unit>
+            <trans-unit id="extmng.deepseek_logprobs" resname="extmng.deepseek_logprobs">
+                <source>Logprobs</source>
+            </trans-unit>
+            <trans-unit id="xai.apiKey" resname="xai.apiKey">
+                <source>XAi API Key</source>
+            </trans-unit>
+            <trans-unit id="xai.model" resname="xai.model">
+                <source>XAi Model</source>
+            </trans-unit>
+            <trans-unit id="extmng.content" resname="extmng.content">
+                <source> Select Default Content feature</source>
+            </trans-unit>
+            <trans-unit id="packageForContentBlocks" resname="packageForContentBlocks">
+                <source>Select Package to Store AI Content Elements</source>
+            </trans-unit>
+            <trans-unit id="general_error_message" resname="general_error_message">
+                <source>Oops, an error occurred</source>
+            </trans-unit>
+            <trans-unit id="error_title" resname="error_title">
+                <source>Something went wrong</source>
+            </trans-unit>
+            <trans-unit id="aiContentElement.groupName" resname="aiContentElement.groupName">
+                <source>T3AB Content Blocks</source>
+            </trans-unit>
+            <trans-unit id="content_blocks.form_validation_error" resname="content_blocks.form_validation_error">
+                <source>Please fill all the required fields.</source>
+            </trans-unit>
+            <trans-unit id="t3ab.error" resname="t3ab.error">
+                <source>Sorry, an error occurred. Please try again.</source>
+            </trans-unit>
+            <trans-unit id="t3ab.contentBlock.tryDifferentPrompt" resname="t3ab.contentBlock.tryDifferentPrompt">
+                <source>Please try different prompt.</source>
+            </trans-unit>
+            <trans-unit id="content_blocks.confirm.cancel" resname="content_blocks.confirm.cancel">
+                <source>Cancel</source>
+            </trans-unit>
+            <trans-unit id="content_blocks.confirmation.title" resname="content_blocks.confirmation.title">
+                <source>Create Content Element</source>
+            </trans-unit>
+            <trans-unit id="content_blocks.confirmation.description" resname="content_blocks.confirmation.description">
+                <source>Are you sure want to create content element?</source>
+            </trans-unit>
+            <trans-unit id="content_blocks.create.success" resname="content_blocks.create.success">
+                <source>Content Block Successfully Created.</source>
+            </trans-unit>
+            <trans-unit id="content_blocks.extension_not_installer.title" resname="content_blocks.extension_not_installer.title">
+                <source>Content Blocks Extension Not Installed</source>
+            </trans-unit>
+            <trans-unit id="content_blocks.extension_not_installer.description" resname="content_blocks.extension_not_installer.description">
+                <source>The required TYPO3 system extension "content_blocks" is not installed or activated. Please install it using Composer and activate it to enable Content Blocks functionality.</source>
+            </trans-unit>
+            <trans-unit id="new_content_block.modal_title" resname="new_content_block.modal_title">
+                <source>AI Content Blocks</source>
+            </trans-unit>
+            <trans-unit id="new_ai_form.modal_title" resname="new_ai_form.modal_title">
+                <source>AI Form</source>
+            </trans-unit>
+            <trans-unit id="modal.cancel" resname="modal.cancel">
+                <source>Cancel</source>
+            </trans-unit>
+            <trans-unit id="modal.yes" resname="modal.yes">
+                <source>Yes</source>
+            </trans-unit>
+            <trans-unit id="content_block.delete_modal.title" resname="content_block.delete_modal.title">
+                <source>Delete Content Blocks</source>
+            </trans-unit>
+            <trans-unit id="content_block.delete_modal.description" resname="content_block.delete_modal.description">
+                <source>Are you sure want to register this content block?</source>
+            </trans-unit>
+            <trans-unit id="content_block.delete.success.title" resname="content_block.delete.success.title">
+                <source>Content Block Successfully Deleted</source>
+            </trans-unit>
+            <trans-unit id="content_block.delete.backup.path" resname="content_block.delete.backup.path">
+                <source>Backup available on path</source>
+            </trans-unit>
+            <trans-unit id="feature_suggestion.modal.title" resname="feature_suggestion.modal.title">
+                <source>Suggest Feature</source>
+            </trans-unit>
+            <trans-unit id="bug_report.modal.title" resname="bug_report.modal.title">
+                <source>Report an Issue</source>
+            </trans-unit>
+            <trans-unit id="bug_report.success" resname="bug_report.success">
+                <source>Issue reported successfully</source>
+            </trans-unit>
+            <trans-unit id="feature_suggestion.success" resname="feature_suggestion.success">
+                <source>Your request has been submitted successfully</source>
+            </trans-unit>
+            <trans-unit id="modal.close" resname="modal.close">
+                <source>Close</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

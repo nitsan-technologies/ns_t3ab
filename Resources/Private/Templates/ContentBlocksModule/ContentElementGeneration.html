@@ -1,0 +1,124 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers">
+
+<f:layout name="Default" />
+
+<f:section name="content">
+    <div class="t3ab-modal-content">
+        <div class="t3js-modal-body modal-body pt-4 padding-top-4">
+            <form action="{submitAction}" method="POST" id="content-blocks-fields-generation" class="form mb-2">
+                <f:render partial="AiModels" arguments="{_all}" />
+                <div class="t3ab-cef-form mt-5 margin-top-5">
+                    <div class="row">
+                      <div class="col-12 {f:if(condition: '{t3version} == 12', then: 'col-md-12', else:'col-md-6')}">
+                          <div class="form-group">
+                              <label for="vendor-name" class="form-label">
+                                  <f:translate key="content_blocks.selected_package" extensionName="ns_t3ab" />
+                              </label>
+                              <select name="packageName" class="form-select">
+                                  <f:for each="{availablePackages}" as="package" key="key" iteration="i">
+                                      <option value="{key}" {f:if(condition: '{key} == {selectedPackage.packageKey}', then: 'selected')}>{package.packageMetaData.title}</option>
+                                  </f:for>
+                              </select>
+                          </div>
+                      </div>
+                      <div class="col-12 col-md-6">
+                          <div class="form-group">
+                              <label for="element-name" class="form-label"><f:translate key="content_blocks.select_category" extensionName="ns_t3ab" /></label>
+                              <select name="category" class="form-select">
+                                  <f:for each="{contentElementGroup}" as="categoryLabel" key="categoryKey" iteration="i">
+                                      <option value="{categoryKey}" {f:if(condition: '{categoryKey} == t3ab_content_blocks', then: 'selected')}>
+                                          <f:if condition="{categoryLabel.localLangLabel} !== ''">
+                                              <f:then><f:translate key="{categoryLabel.localLangLabel}" /></f:then>
+                                              <f:else>{categoryLabel.normalLabel}</f:else>
+                                          </f:if>
+                                      </option>
+                                  </f:for>
+                              </select>
+                          </div>
+                      </div>
+                      <div class="col-12 col-md-6">
+                          <div class="form-group">
+                              <label for="element-name" class="form-label"><f:translate key="content_blocks.name" extensionName="ns_t3ab" /></label>
+                              <input type="text" id="element-name" class="form-control" name="elementName" maxlength="35"
+                                  required>
+                          </div>
+                      </div>
+                      <div class="col-12 col-md-6">
+                          <div class="form-group">
+                              <label for="element-description" class="form-label"><f:translate key="content_blocks.description" extensionName="ns_t3ab" /></label>
+                              <input type="text" id="element-description" class="form-control" name="elementDescription"
+                                  required>
+                          </div>
+                      </div>
+                      <f:if condition="{t3version} >= 13">
+                        <div class="col-12 col-md-6">
+                            <div class="form-group">
+                                <label for="content-block-icon" class="form-label"><f:translate key="content_blocks.icon" extensionName="ns_t3ab" /></label>
+                                <div class="ns-t3ab-custom-select-wrapper">
+                                    <div class="ns-t3ab-custom-select">
+                                      <div class="ns-t3ab-custom-select-trigger form-select">Select an icon</div>
+                                      <div class="ns-t3ab-custom-options shadow rounded-md">
+                                        <f:for each="{contentIcons}" as="cIcon">
+                                            <div class="ns-t3ab-custom-option" data-att="{cIcon}">
+                                                <core:icon identifier="{cIcon}" size="small" alternativeMarkupIdentifier="inline" />
+                                                <t3ab:IconNameFormat icon-identifier="{cIcon}" />
+                                            </div>
+                                        </f:for>
+                                        <input type="hidden" name="cbIcon" value="">
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                      </f:if>
+
+                      <div class="col-12 col-md-6">
+                          <div class="form-group">
+                              <label for="content-block-key" class="form-label" ><f:translate key="content_blocks.key" extensionName="ns_t3ab" /></label>
+                              <input type="text" id="content-block-key" class="form-control" maxlength="35"
+                                      required>
+                                      <input type="hidden" name="contentBlockKey" maxlength="35" >
+                          </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="t3js-form-proposal-different callout callout-success hidden">
+                            <div class="callout-content">
+                                <div class="callout-body">
+                                    <samp class="text-nowrap"><span class="fw-bold"></span></samp> <f:translate key="content_blocks.key_suggestion" extensionName="ns_t3ab" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="content-block-description" class="form-label"><f:translate key="content_blocks.prompt" extensionName="ns_t3ab" /></label>
+                        <div class="form-group">
+                            <textarea class="form-control" name="contentBlockPrompt"
+                                id="content-block-description" rows="8" required></textarea>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="t3js-modal-footer modal-footer">
+            <div class="row justify-content-between w-100 row-cols-auto g-0 align-items-center">
+                <f:render partial="Links" />
+                <div class="col">
+                    <button class="btn btn-secondary" t3ab-modal="close">
+                        <core:icon identifier="actions-close" size="small" />
+                        <f:translate key="modal.close" extensionName="ns_t3ab" />
+                    </button>
+                    <button type="submit" class="btn btn-primary ms-2" form="content-blocks-fields-generation">
+                        <span class="me-1"><core:icon identifier="t3ab_magic" size="small" /></span>
+                        <f:translate key="content_blocks.create" extensionName="ns_t3ab" />
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <f:variable name="spinnerMessage" value="Content is being generated, this may take a moment..." />
+    <div id="ns-t3ab__loader">
+        <core:icon identifier="t3ab_loading" size="large" alternativeMarkupIdentifier="inline" />
+        <span class="loader-text"><f:translate key="t3ab.loader" extensionName="ns_t3ab" /></span>
+    </div>
+</f:section>

@@ -1,0 +1,59 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+  xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers">
+
+<f:layout name="Default" />
+
+<f:section name="content">
+  <div class="t3ab-modal-content">
+    <div class="t3js-modal-body modal-body">
+      <div class="container mt-2 mb-2">
+        <div class="mt-2">
+          <f:flashMessages queueIdentifier="ns_t3ab" />
+        </div>
+        <div id="file-content-accordion">
+          <f:for each="{files}" as="fileContent" key="fileName" iteration="it">
+            <div class="panel panel-notice mb-3 t3ab-cbe-preview-panel">
+              <div class="panel-heading">
+                <h3 class="panel-title" id="heading-panel-{it.index}">
+                  <a href="#" data-bs-toggle="collapse" data-bs-target="#panel-{it.index}" aria-expanded="{f:if(condition: '{it.isFirst}', then: 'true', else: 'false')}"
+                    aria-controls="panel-{it.index}">
+                    <span class="caret"></span>
+                    <strong>{fileName}</strong>
+                  </a>
+                </h3>
+              </div>
+              <div id="panel-{it.index}" class="accordion-collapse collapse {f:if(condition: '{it.isFirst}', then: 'show')}" aria-labelledby="heading-panel-{it.index}"
+                data-bs-parent="#file-content-accordion">
+                <div class="panel-body">
+                  <f:format.raw>
+                    <code>
+                      <pre>{fileContent ->  f:format.htmlspecialchars() -> f:format.raw()}</pre>
+                    </code>
+                  </f:format.raw>
+                </div>
+              </div>
+            </div>
+          </f:for>
+        </div>
+        <f:variable name="spinnerMessage" value="Content is being generated, this may take a moment..." />
+        <div id="ns-t3ab__loader">
+          <core:icon identifier="t3ab_loading" size="large" alternativeMarkupIdentifier="inline" />
+          <span class="loader-text">
+            <f:translate key="t3ab.loader" extensionName="ns_t3ab" />
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="t3js-modal-footer modal-footer">
+      <div class="row justify-content-between w-100 row-cols-auto g-0 align-items-center">
+        <f:render partial="Links" />
+        <div class="col">
+          <button class="btn btn-secondary" t3ab-modal="close" t3ab-close-reload="1">
+            <core:icon identifier="actions-close" size="small" />
+            <f:translate key="modal.close" extensionName="ns_t3ab" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</f:section>
