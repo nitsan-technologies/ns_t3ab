@@ -2,6 +2,12 @@
 
 *Living work log — update at end of each session.*
 
+## 2026-10-27 — TER publish extension key
+
+**Done:** `ter-release.yml` checks out the repository and no longer sets `TYPO3_EXTENSION_KEY`. Tailor reads `extra.typo3/cms.extension-key` from `composer.json`.
+
+**Last touched:** 2026-10-27
+
 ## 2026-10-27 — CI composer advisory block
 
 **Done:** `composerInstallHighest` and `composerInstallLowest` set `policy.advisories.block false` before resolving TYPO3. The published `composer.json` is restored afterwards.
