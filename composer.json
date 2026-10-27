@@ -1,5 +1,6 @@
 {
     "name": "nitsan/ns-t3ab",
+    "version": "1.0.0",
     "type": "typo3-cms-extension",
     "homepage": "https://t3planet.com",
     "description": "TYPO3 AI Builder - T3AB helps you build TYPO3 content blocks, and AI-powered forms, fast and customizable. Just describe your idea, and T3AB generates clean, ready-to-use TYPO3 code with full flexibility.",
@@ -82,7 +83,8 @@
     "extra": {
         "typo3/cms": {
             "web-dir": ".Build/public",
-            "extension-key": "ns_t3ab"
+            "extension-key": "ns_t3ab",
+            "version": "1.0.0"
         }
     }
 }
