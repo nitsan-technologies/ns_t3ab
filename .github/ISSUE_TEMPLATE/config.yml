@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Support
+    url: https://t3planet.de/support
+    about: Product support from T3Planet
+  - name: Product page
+    url: https://t3planet.de/t3ab-typo3-erweiterung
+    about: Check the product page before opening an issue

@@ -1,6 +1,7 @@
 # Development-only files: kept in git, left out of git archive / Packagist dist / release ZIPs.
 /.agents export-ignore
 /.gitattributes export-ignore
+/.github export-ignore
 /.gitignore export-ignore
 /AGENTS.md export-ignore
 /context export-ignore

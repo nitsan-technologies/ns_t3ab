@@ -1,0 +1,91 @@
+name: Bug Report
+description: Report a bug or unexpected behavior
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug in T3AB – TYPO3 AI Builder (`ns_t3ab`)!
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear description of what the bug is
+      placeholder: Describe what happened...
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Steps to reproduce the behavior
+      placeholder: |
+        1. Open Administration → T3AB (Content Blocks)
+        2. Choose provider '...'
+        3. Click '...'
+        4. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What you expected to happen
+    validations:
+      required: true
+
+  - type: input
+    id: t3ab-version
+    attributes:
+      label: ns_t3ab Version
+      placeholder: "2.0.0"
+    validations:
+      required: true
+
+  - type: input
+    id: typo3-version
+    attributes:
+      label: TYPO3 Version
+      placeholder: "14.3.0"
+    validations:
+      required: true
+
+  - type: input
+    id: php-version
+    attributes:
+      label: PHP Version
+      placeholder: "8.2.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Content Blocks
+        - AI Forms
+        - AI model / provider
+        - Extension configuration
+        - Other
+    validations:
+      required: false
+
+  - type: dropdown
+    id: provider
+    attributes:
+      label: AI provider (if relevant)
+      options:
+        - OpenAI
+        - Gemini
+        - Claude
+        - Azure
+        - DeepSeek
+        - xAI
+        - Ollama
+        - N/A
+    validations:
+      required: false

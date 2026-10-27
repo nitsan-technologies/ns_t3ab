@@ -2,6 +2,12 @@
 
 *Living work log — update at end of each session.*
 
+## 2026-10-27 — GitHub community files and README
+
+**Done:** README uses the product-page hero and describes Content Blocks and AI Forms. Added community docs and `.github` issue, PR, Dependabot, labeler, and TER release files. Core and documentation workflows stay out until a test runner and `Documentation/` exist.
+
+**Last touched:** 2026-10-27
+
 ## 2026-10-27 — License server check removed
 
 **Done:** Deleted the backend-login listener and the package-activation `Setup` class. `nitsan/ns-license` remains a dependency. No `connectToServer` call remains.

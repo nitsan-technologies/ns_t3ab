@@ -1,0 +1,24 @@
+# Label configuration for PR Labeler
+# https://github.com/actions/labeler
+# Requires a workflow that runs actions/labeler.
+documentation:
+  - changed-files:
+      - any-glob-to-any-file: ['**/*.md', 'context/**/*']
+ci:
+  - changed-files:
+      - any-glob-to-any-file: ['.github/**/*']
+dependencies:
+  - changed-files:
+      - any-glob-to-any-file: ['composer.json', 'composer.lock']
+configuration:
+  - changed-files:
+      - any-glob-to-any-file: ['Configuration/**/*', 'ext_*.php', 'ext_*.txt', 'ext_*.sql', 'composer.json']
+translations:
+  - changed-files:
+      - any-glob-to-any-file: ['Resources/Private/Language/**/*']
+php:
+  - changed-files:
+      - any-glob-to-any-file: ['Classes/**/*']
+frontend:
+  - changed-files:
+      - any-glob-to-any-file: ['Resources/Public/**/*', 'Resources/Private/Templates/**/*', 'Resources/Private/Partials/**/*', 'Resources/Private/Layouts/**/*']
