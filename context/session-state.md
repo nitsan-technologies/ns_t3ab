@@ -2,6 +2,12 @@
 
 *Living work log — update at end of each session.*
 
+## 2026-10-27 — CI composer advisory block
+
+**Done:** `composerInstallHighest` and `composerInstallLowest` set `policy.advisories.block false` before resolving TYPO3. The published `composer.json` is restored afterwards.
+
+**Last touched:** 2026-10-27
+
 ## 2026-10-27 — Version 1.0.0
 
 **Done:** Extension version is 1.0.0. `CHANGELOG.md` records the initial release.

@@ -528,6 +528,9 @@ case ${TEST_SUITE} in
         cleanComposer
         stashComposerFiles
         ${CONTAINER_BIN} run "${CONTAINER_COMMON_PARAMS[@]}" --name composer-install-highest-${SUFFIX} -e COMPOSER_CACHE_DIR=.cache/composer -e COMPOSER_ROOT_VERSION=${COMPOSER_ROOT_VERSION} ${IMAGE_PHP} /bin/bash -c "
+            # Supported TYPO3 releases stay on Packagist with published advisories.
+            # Composer refuses to resolve them unless this test install opts out.
+            composer config --no-plugins --no-interaction policy.advisories.block false || exit 1
             composer require --no-ansi --no-interaction --no-progress --no-install \
               typo3/cms-core:${TYPO3_CONSTRAINT} \
               typo3/cms-backend:${TYPO3_CONSTRAINT} \
@@ -544,6 +547,7 @@ case ${TEST_SUITE} in
         cleanComposer
         stashComposerFiles
         ${CONTAINER_BIN} run "${CONTAINER_COMMON_PARAMS[@]}" --name composer-install-lowest-${SUFFIX} -e COMPOSER_CACHE_DIR=.cache/composer -e COMPOSER_ROOT_VERSION=${COMPOSER_ROOT_VERSION} ${IMAGE_PHP} /bin/bash -c "
+            composer config --no-plugins --no-interaction policy.advisories.block false || exit 1
             composer require --no-ansi --no-interaction --no-progress --no-install \
               typo3/cms-core:${TYPO3_CONSTRAINT} \
               typo3/cms-backend:${TYPO3_CONSTRAINT} \
