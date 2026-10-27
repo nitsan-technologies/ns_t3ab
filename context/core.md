@@ -13,7 +13,7 @@
 | Namespace | `NITSAN\NsT3Ab\` |
 | Vendor | NITSAN / T3Planet |
 | Role | TYPO3 AI Builder — AI forms and AI content blocks |
-| Version | `2.0.0` (`ext_emconf.php`) |
+| Version | `1.0.0` (`ext_emconf.php`) |
 
 **Vision:** Describe forms and content blocks in natural language; generate ready-to-use TYPO3 artefacts (form YAML, Content Block packages).
 

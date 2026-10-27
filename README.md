@@ -1,4 +1,4 @@
-[![Latest Stable Version](https://img.shields.io/badge/Stable-2.0.0-success)](https://extensions.typo3.org/extension/ns_t3ab)
+[![Latest Stable Version](https://img.shields.io/badge/Stable-1.0.0-success)](https://extensions.typo3.org/extension/ns_t3ab)
 [![T3AB GitHub](https://img.shields.io/badge/ns__t3ab-informational?logo=github)](https://github.com/nitsan-technologies/ns_t3ab)
 [![TYPO3 14](https://img.shields.io/badge/TYPO3-14-important.svg?logo=typo3)](https://get.typo3.org/version/14)
 [![TYPO3 13](https://img.shields.io/badge/TYPO3-13-important.svg?logo=typo3)](https://get.typo3.org/version/13)
@@ -80,6 +80,10 @@ Build/Scripts/runTests.sh -h
 ```
 
 `Documentation/` is rendered by `.github/workflows/documentation.yml`. `Build/`, `Tests/`, and `context/` stay in git and are left out of release archives.
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md). Version 1.0.0 is the initial release.
 
 ## License
 

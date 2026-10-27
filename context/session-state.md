@@ -2,6 +2,12 @@
 
 *Living work log — update at end of each session.*
 
+## 2026-10-27 — Version 1.0.0
+
+**Done:** Extension version is 1.0.0. `CHANGELOG.md` records the initial release.
+
+**Last touched:** 2026-10-27
+
 ## 2026-10-27 — CI runner and documentation
 
 **Done:** Added `Build/Scripts/runTests.sh`, unit test, PHPStan, PHP-CS-Fixer, `Documentation/`, and workflows `core12.yml`, `core13.yml`, `core14.yml`, and `documentation.yml`.

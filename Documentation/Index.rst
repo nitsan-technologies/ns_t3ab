@@ -13,7 +13,7 @@ T3AB - TYPO3 AI Builder
    nitsan/ns-t3ab
 
 :Version:
-   2.0.0
+   1.0.0
 
 :Language:
    en

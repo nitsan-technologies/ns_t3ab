@@ -7,7 +7,7 @@
 .. |extension_name| replace:: T3AB
 .. |extension_key| replace:: ns_t3ab
 .. |package_name| replace:: nitsan/ns-t3ab
-.. |extension_version| replace:: 2.0.0
+.. |extension_version| replace:: 1.0.0
 .. |extension_state| replace:: stable
 .. |extension_license| replace:: GPL-2.0-or-later
 .. |extension_author| replace:: Team NITSAN // T3Planet
