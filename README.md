@@ -22,7 +22,10 @@ Describe what you need in the TYPO3 backend. T3AB generates Content Blocks and F
 |---|---|
 | **Repository:** | https://github.com/nitsan-technologies/ns_t3ab |
 | **Issues:** | https://github.com/nitsan-technologies/ns_t3ab/issues |
+| **Composer:** | https://packagist.org/packages/nitsan/ns-t3ab |
+| **TER:** | https://extensions.typo3.org/extension/ns_t3ab |
 | **Product page:** | https://t3planet.de/t3ab-typo3-erweiterung |
+| **Documentation:** | https://docs.typo3.org/p/nitsan/ns-t3ab/main/en-us/ |
 | **Support:** | https://t3planet.de/support |
 | **License:** | [LICENSE](LICENSE) (GPL-2.0-or-later) |
 
