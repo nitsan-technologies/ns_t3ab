@@ -52,6 +52,7 @@
     "scripts": {
         "cs:check": ".Build/bin/php-cs-fixer fix --dry-run --diff",
         "cs:fix": ".Build/bin/php-cs-fixer fix",
+        "doc-watch": "docker run --rm -it --pull always -v ./Documentation:/project/Documentation -v ./Documentation-GENERATED-temp:/project/Documentation-GENERATED-temp -p 1337:1337 ghcr.io/typo3-documentation/render-guides:latest --config=Documentation --watch",
         "stan": ".Build/bin/phpstan analyse --memory-limit=512M",
         "test": ".Build/bin/phpunit -c Build/phpunit/UnitTests.xml",
         "ci": [
@@ -63,7 +64,8 @@
     "scripts-descriptions": {
         "cs:check": "Run PHP-CS-Fixer in dry-run mode (.php-cs-fixer.php)",
         "cs:fix": "Apply PHP-CS-Fixer fixes",
-        "stan": "Run PHPStan static analysis (phpstan.neon)",
+        "doc-watch": "Render documentation with watcher",
+        "stan": "Run PHPStan static analysis",
         "test": "Run unit tests (Build/phpunit/UnitTests.xml)",
         "ci": "Run what the GitHub Actions CI runs: unit tests, PHPStan, coding standards"
     },
